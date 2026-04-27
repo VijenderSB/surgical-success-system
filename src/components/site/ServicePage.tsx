@@ -135,6 +135,46 @@ export function ServicePage(props: ServicePageProps) {
           </div>
         </section>
 
+        {/* UNIQUE FEATURES (optional) */}
+        {props.uniqueFeatures && (
+          <section className="py-20 md:py-24">
+            <div className="mx-auto max-w-7xl px-6">
+              <div className="mx-auto max-w-2xl text-center">
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  {props.uniqueFeatures.eyebrow}
+                </div>
+                <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
+                  {props.uniqueFeatures.title}{" "}
+                  <span className="text-gradient-primary">{props.uniqueFeatures.highlight}</span>
+                </h2>
+                <p className="mt-4 text-muted-foreground">{props.uniqueFeatures.desc}</p>
+              </div>
+              <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                {props.uniqueFeatures.items.map((f) => (
+                  <Card key={f.title} className="group relative overflow-hidden border-border/70 p-7 shadow-soft transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-elevated">
+                    <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-primary/5 blur-2xl transition-all group-hover:bg-primary/15" />
+                    <div className="relative">
+                      <div className="flex items-center justify-between">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary-glow text-primary-foreground shadow-soft">
+                          <f.icon className="h-6 w-6" />
+                        </div>
+                        {f.tag && (
+                          <span className="rounded-full border border-primary/20 bg-primary/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary">
+                            {f.tag}
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="mt-5 text-lg font-semibold">{f.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* PATIENT ENGAGEMENT — DEEP BLOCK */}
         <section className="py-20 md:py-24">
           <div className="mx-auto max-w-6xl px-6">
