@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { useLeadForm } from "@/components/site/LeadFormDialog";
 
 export type ServicePageProps = {
   eyebrow: string;
@@ -32,6 +33,7 @@ export type ServicePageProps = {
 
 export function ServicePage(props: ServicePageProps) {
   const HeroIcon = props.heroIcon;
+  const { open } = useLeadForm();
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -56,7 +58,7 @@ export function ServicePage(props: ServicePageProps) {
                 <p className="mt-5 text-lg text-muted-foreground md:text-xl">{props.intro}</p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <Button size="lg" className="h-12 px-6 text-base shadow-glow">
+                  <Button size="lg" className="h-12 px-6 text-base shadow-glow" onClick={() => open(`Service hero · ${props.title}`)}>
                     Schedule a Growth Consultation
                     <ArrowRight className="ml-1 h-4 w-4" />
                   </Button>
@@ -248,7 +250,7 @@ export function ServicePage(props: ServicePageProps) {
               Talk to our eyecare growth specialists. We'll map the patient journey, identify revenue leaks, and design your system.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button size="lg" className="h-12 px-6 text-base shadow-glow">
+              <Button size="lg" className="h-12 px-6 text-base shadow-glow" onClick={() => open(`Service CTA · ${props.title}`)}>
                 Schedule a Growth Consultation
                 <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
