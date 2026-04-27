@@ -28,6 +28,7 @@ export type ServicePageProps = {
     desc: string;
     items: { icon: LucideIcon; title: string; desc: string; tag?: string }[];
   };
+  afterCapabilities?: React.ReactNode;
 };
 
 export function ServicePage(props: ServicePageProps) {
@@ -134,6 +135,9 @@ export function ServicePage(props: ServicePageProps) {
             </div>
           </div>
         </section>
+
+        {/* OPTIONAL CUSTOM SECTION (e.g., dashboard mock) */}
+        {props.afterCapabilities}
 
         {/* UNIQUE FEATURES (optional) */}
         {props.uniqueFeatures && (
