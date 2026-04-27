@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLeadForm } from "@/components/site/LeadFormDialog";
+import { WhatsAppCTA } from "@/components/site/WhatsAppCTA";
 
 type FooterLink = { label: string; to?: string; href?: string };
 

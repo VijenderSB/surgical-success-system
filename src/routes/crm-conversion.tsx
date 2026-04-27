@@ -456,6 +456,10 @@ function CrmConversionPage() {
               >
                 <Link to="/">Back to Home</Link>
               </Button>
+              <WhatsAppCTA
+                context="CRM CTA"
+                className="h-12 border-white/30 bg-white/10 px-6 text-white hover:bg-white/20 hover:text-white"
+              />
             </div>
           </div>
         </section>

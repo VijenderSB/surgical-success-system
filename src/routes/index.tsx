@@ -45,6 +45,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FlowDiagram } from "@/components/site/FlowDiagram";
 import { useLeadForm } from "@/components/site/LeadFormDialog";
+import { WhatsAppCTA } from "@/components/site/WhatsAppCTA";
 import heroImage from "@/assets/hero-system.jpg";
 import eyeGraphic from "@/assets/eye-graphic.png";
 import { buildPageMeta, faqJsonLd, breadcrumbJsonLd } from "@/lib/seo";

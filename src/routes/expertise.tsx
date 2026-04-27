@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { useLeadForm } from "@/components/site/LeadFormDialog";
+import { WhatsAppCTA } from "@/components/site/WhatsAppCTA";
 import { buildPageMeta, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/expertise")({
