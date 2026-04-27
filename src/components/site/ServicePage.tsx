@@ -21,6 +21,13 @@ export type ServicePageProps = {
   };
   process: { step: string; title: string; desc: string }[];
   outcomes: { metric: string; label: string }[];
+  uniqueFeatures?: {
+    eyebrow: string;
+    title: string;
+    highlight: string;
+    desc: string;
+    items: { icon: LucideIcon; title: string; desc: string; tag?: string }[];
+  };
 };
 
 export function ServicePage(props: ServicePageProps) {
