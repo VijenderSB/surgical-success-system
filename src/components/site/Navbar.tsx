@@ -45,6 +45,9 @@ export function Navbar() {
           <Link to="/expertise" className="transition-colors hover:text-foreground" activeProps={{ className: "text-foreground" }}>
             Expertise
           </Link>
+          <Link to="/locations" className="transition-colors hover:text-foreground" activeProps={{ className: "text-foreground" }}>
+            Locations
+          </Link>
           <a href="/#process" className="transition-colors hover:text-foreground">Process</a>
           <a href="/#case-study" className="transition-colors hover:text-foreground">Case Study</a>
           <a href="/#faq" className="transition-colors hover:text-foreground">FAQ</a>
