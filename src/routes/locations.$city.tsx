@@ -354,6 +354,45 @@ function CityPage() {
         </div>
       </section>
 
+      {/* The Eyecare Growth Ecosystem */}
+      <section className="border-t border-border/60 py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/5 px-3 py-1 text-xs font-medium text-success">
+              <Globe className="h-3.5 w-3.5" />
+              The System
+            </div>
+            <h2 className="mt-5 text-3xl font-bold tracking-tight md:text-4xl">
+              The Eyecare Growth Ecosystem
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Six interlocking layers that turn a {city.name} eye hospital into a predictable, compounding revenue engine. Remove any one — the system breaks. Run all six — turnover grows 50%+ in 12 months.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {ecosystem.map((e, i) => (
+              <Card key={e.title} className="group relative overflow-hidden border-border/60 bg-card p-6 transition hover:border-success/40 hover:shadow-soft">
+                <div className="absolute right-4 top-4 text-xs font-mono text-muted-foreground/40">
+                  0{i + 1}
+                </div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-success/10 text-success">
+                  <e.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 text-lg font-semibold">{e.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{e.desc}</p>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-xl border border-success/20 bg-success/5 p-6 text-center">
+            <p className="text-sm text-muted-foreground">
+              <span className="font-semibold text-foreground">In {city.name}, the ecosystem is calibrated to local behaviour</span> — search intent in {city.region} India, regional language preferences, {city.tier} willingness-to-pay, and the competitive set in {city.landmarks[0]} & surrounding areas.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Local relevance: landmarks & hubs */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6">
