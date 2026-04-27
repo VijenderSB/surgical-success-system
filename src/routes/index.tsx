@@ -25,6 +25,7 @@ import {
   Clock,
   Megaphone,
   PenSquare,
+  Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -38,6 +39,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FlowDiagram } from "@/components/site/FlowDiagram";
 import heroImage from "@/assets/hero-system.jpg";
+import eyeGraphic from "@/assets/eye-graphic.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -61,23 +63,54 @@ export const Route = createFileRoute("/")({
 /* ---------- EXPERTISE BANNER (declared before Home) ---------- */
 function ExpertiseBanner() {
   return (
-    <section className="border-y border-border/60 bg-card py-10">
-      <div className="mx-auto grid max-w-7xl gap-6 px-6 md:grid-cols-[auto_1fr_auto] md:items-center">
-        <div className="flex items-center gap-4">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary-glow text-primary-foreground shadow-soft">
-            <span className="text-lg font-bold">20+</span>
-          </div>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-primary">Years in Eyecare</p>
-            <p className="text-sm text-muted-foreground">Deep domain expertise — not generic medical marketing.</p>
-          </div>
+    <section className="relative overflow-hidden bg-gradient-deep py-14 text-surface-deep-foreground">
+      {/* Decorative iris glows */}
+      <div className="pointer-events-none absolute inset-0 -z-0">
+        <div className="absolute -top-32 left-1/4 h-80 w-80 rounded-full bg-primary-glow/20 blur-3xl" />
+        <div className="absolute -bottom-32 right-1/4 h-80 w-80 rounded-full bg-primary/30 blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_60%,oklch(0.16_0.05_268_/_0.5)_100%)]" />
+      </div>
+
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-[auto_1fr_auto]">
+        {/* Eye graphic with animated rings */}
+        <div className="relative mx-auto flex h-44 w-44 items-center justify-center md:h-52 md:w-52">
+          <span className="absolute inset-0 animate-ping rounded-full border border-primary-glow/30" style={{ animationDuration: "3s" }} />
+          <span className="absolute inset-4 rounded-full border border-primary-glow/20" />
+          <span className="absolute inset-8 rounded-full border border-primary-glow/15" />
+          <div className="absolute inset-0 rounded-full bg-gradient-iris" />
+          <img
+            src={eyeGraphic}
+            alt="Stylised eye iris graphic"
+            width={1024}
+            height={1024}
+            loading="lazy"
+            className="relative h-36 w-36 object-contain drop-shadow-[0_8px_24px_oklch(0.72_0.18_218_/_0.45)] md:h-44 md:w-44"
+          />
         </div>
-        <div className="hidden md:block">
-          <p className="text-base font-semibold text-foreground">
-            We understand the whole eyecare dynamic that drives <span className="text-gradient-primary">50% growth in turnover</span>.
+
+        {/* Copy */}
+        <div className="text-center lg:text-left">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white/90 backdrop-blur">
+            <Award className="h-3.5 w-3.5 text-primary-glow" />
+            20 Years in Eyecare Marketing
+          </div>
+          <h2 className="mt-4 text-2xl font-bold tracking-tight md:text-3xl lg:text-[2rem]">
+            Deep Domain Expertise That Drives{" "}
+            <span className="bg-gradient-to-r from-primary-glow to-[oklch(0.72_0.20_30)] bg-clip-text text-transparent">
+              50% Growth in Turnover
+            </span>
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-white/70 md:text-base lg:mx-0">
+            We understand the whole eyecare dynamic — patient psychology, procedure economics, and conversion choreography — built over two decades.
           </p>
         </div>
-        <Button asChild variant="outline" size="lg" className="h-11">
+
+        {/* CTA */}
+        <Button
+          asChild
+          size="lg"
+          className="h-12 bg-gradient-to-r from-primary-glow to-primary px-6 text-base font-semibold text-white shadow-glow transition-transform hover:scale-[1.03]"
+        >
           <Link to="/expertise">
             See Our Expertise
             <ArrowRight className="ml-1 h-4 w-4" />
