@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
+import logo from "@/assets/transess-logo.png";
 import {
-  Eye,
   Mail,
   Phone,
   MapPin,
@@ -104,11 +104,8 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           {/* Brand */}
           <div className="lg:col-span-4">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-glow text-primary-foreground">
-                <Eye className="h-5 w-5" />
-              </div>
-              <span className="text-lg font-bold tracking-tight">Transess Technologies</span>
+            <Link to="/" className="flex items-center" aria-label="Transess Technologies">
+              <img src={logo} alt="Transess Technologies — Eyecare Digital Marketing Agency" className="h-14 w-auto md:h-16" />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               The complete patient acquisition and conversion ecosystem built
