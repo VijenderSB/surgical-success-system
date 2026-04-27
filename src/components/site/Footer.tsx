@@ -105,7 +105,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-4">
             <Link to="/" className="flex items-center" aria-label="Transess Technologies">
-              <img src={logo} alt="Transess Technologies — Eyecare Digital Marketing Agency" className="h-14 w-auto md:h-16" />
+              <img src={logo} alt="Transess Technologies — Eyecare Digital Marketing Agency" className="h-[3.85rem] w-auto md:h-[4.4rem]" />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               The complete patient acquisition and conversion ecosystem built

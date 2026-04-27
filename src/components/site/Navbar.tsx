@@ -22,7 +22,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         <Link to="/" className="flex items-center" aria-label="Transess Technologies">
-          <img src={logo} alt="Transess Technologies — Eyecare Digital Marketing Agency" className="h-10 w-auto md:h-11" />
+          <img src={logo} alt="Transess Technologies — Eyecare Digital Marketing Agency" className="h-12 w-auto md:h-[3.3rem]" />
         </Link>
 
         <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
