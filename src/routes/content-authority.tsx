@@ -3,16 +3,26 @@ import {
   PenSquare, Video, Mic, BookOpen, Star, Eye, ShieldCheck, Users, Camera,
 } from "lucide-react";
 import { ServicePage } from "@/components/site/ServicePage";
+import { buildPageMeta, serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/content-authority")({
-  head: () => ({
-    meta: [
-      { title: "Content & Authority for Eyecare Doctors — Transess Technologies" },
-      { name: "description", content: "Doctor branding, social reels, and educational content that builds trust with eyecare patients before the first call." },
-      { property: "og:title", content: "Content & Authority for Eyecare" },
-      { property: "og:description", content: "Doctor-led content that earns patient trust before the consultation." },
-    ],
-  }),
+  head: () => {
+    const title = "Doctor Branding & Eyecare Content Marketing in India | Transess Technologies";
+    const description = "Doctor-led reels, blogs, podcasts and patient stories that build authority for eye specialists — earning patient trust before the first consultation call.";
+    const base = buildPageMeta({
+      title,
+      description,
+      path: "/content-authority",
+      keywords: ["doctor branding India", "eyecare content marketing", "ophthalmologist personal branding", "medical reels", "patient testimonial videos"],
+    });
+    return {
+      ...base,
+      scripts: [
+        serviceJsonLd({ name: "Content & Authority for Eyecare", serviceType: "Doctor Branding & Content Marketing", description, path: "/content-authority" }),
+        breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Content & Authority", path: "/content-authority" }]),
+      ],
+    };
+  },
   component: () => (
     <ServicePage
       eyebrow="Content & Authority"

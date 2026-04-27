@@ -3,16 +3,26 @@ import {
   Globe, Search, Smartphone, Gauge, MapPin, ShieldCheck, Layout, FileText, Eye,
 } from "lucide-react";
 import { ServicePage } from "@/components/site/ServicePage";
+import { buildPageMeta, serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/digital-infrastructure")({
-  head: () => ({
-    meta: [
-      { title: "Digital Infrastructure for Eyecare — Transess Technologies" },
-      { name: "description", content: "High-converting websites, technical SEO, and medical-intent landing pages built specifically for eyecare patient engagement and consultation bookings." },
-      { property: "og:title", content: "Digital Infrastructure for Eyecare" },
-      { property: "og:description", content: "Eyecare-specific websites and SEO built for how patients actually research and decide on eye care." },
-    ],
-  }),
+  head: () => {
+    const title = "Eyecare Website Design & SEO Services in India | Transess Technologies";
+    const description = "High-converting eyecare websites, technical SEO, schema-rich procedure pages and local SEO built for how patients search for cataract, LASIK, glaucoma & retina care in India.";
+    const base = buildPageMeta({
+      title,
+      description,
+      path: "/digital-infrastructure",
+      keywords: ["eye hospital website design", "ophthalmology SEO India", "LASIK landing page", "cataract SEO", "medical schema markup", "local SEO eye clinic"],
+    });
+    return {
+      ...base,
+      scripts: [
+        serviceJsonLd({ name: "Digital Infrastructure for Eyecare", serviceType: "Website Design, SEO & Landing Pages", description, path: "/digital-infrastructure" }),
+        breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Digital Infrastructure", path: "/digital-infrastructure" }]),
+      ],
+    };
+  },
   component: () => (
     <ServicePage
       eyebrow="Digital Infrastructure"

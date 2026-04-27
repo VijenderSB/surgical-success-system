@@ -44,23 +44,26 @@ import {
   MiniStagePipeline,
 } from "@/components/site/CrmSnapshots";
 
+import { buildPageMeta, serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+
 export const Route = createFileRoute("/crm-conversion")({
-  head: () => ({
-    meta: [
-      { title: "CRM & Conversion System for Eyecare — Transess Technologies" },
-      {
-        name: "description",
-        content:
-          "Where most agencies stop, we begin. Every eyecare lead is tracked, nurtured, and routed to consultation through structured follow-ups and pipeline analytics.",
-      },
-      { property: "og:title", content: "CRM & Conversion System for Eyecare" },
-      {
-        property: "og:description",
-        content:
-          "Turn eyecare inquiries into consultations and surgeries with a structured CRM-driven conversion engine.",
-      },
-    ],
-  }),
+  head: () => {
+    const title = "Eyecare CRM & Lead Conversion System for Hospitals | Transess Technologies";
+    const description = "Eyecare-specific CRM that tracks every inquiry, automates 7-step follow-ups, and routes high-intent patients to consultation — lifting inquiry-to-consult rates to 60% with sub-5-minute response.";
+    const base = buildPageMeta({
+      title,
+      description,
+      path: "/crm-conversion",
+      keywords: ["eyecare CRM", "eye hospital lead management", "ophthalmology lead conversion", "WhatsApp CRM eyecare", "patient follow-up system"],
+    });
+    return {
+      ...base,
+      scripts: [
+        serviceJsonLd({ name: "CRM & Conversion System for Eyecare", serviceType: "Healthcare CRM & Lead Conversion", description, path: "/crm-conversion" }),
+        breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "CRM & Conversion", path: "/crm-conversion" }]),
+      ],
+    };
+  },
   component: CrmConversionPage,
 });
 
