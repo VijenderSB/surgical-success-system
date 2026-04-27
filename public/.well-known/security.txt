@@ -1,0 +1,6 @@
+Contact: mailto:security@transess.com
+Contact: mailto:hello@transess.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://transess.lovable.app/.well-known/security.txt
+Policy: https://transess.lovable.app/
