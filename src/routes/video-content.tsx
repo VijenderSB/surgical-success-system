@@ -3,16 +3,26 @@ import {
   Video, Youtube, Instagram, Facebook, Film, Camera, Megaphone, Sparkles, Mic, Eye, ShieldCheck, Users,
 } from "lucide-react";
 import { ServicePage } from "@/components/site/ServicePage";
+import { buildPageMeta, serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/video-content")({
-  head: () => ({
-    meta: [
-      { title: "Video Content Building for Eyecare Doctors — Transess Technologies" },
-      { name: "description", content: "Video & Reels production across YouTube, Instagram & Facebook — positioning eyecare doctors as recognised influencers in their region." },
-      { property: "og:title", content: "Video Content Building — Become an Eyecare Influencer" },
-      { property: "og:description", content: "End-to-end video & reels system for eye doctors across YouTube, Instagram, and Facebook." },
-    ],
-  }),
+  head: () => {
+    const title = "Video & Reels Production for Eye Doctors in India | Transess Technologies";
+    const description = "End-to-end video and reels production across YouTube, Instagram and Facebook that turns eye specialists into the recognised authority patients in their city actively search for.";
+    const base = buildPageMeta({
+      title,
+      description,
+      path: "/video-content",
+      keywords: ["doctor reels production", "ophthalmologist YouTube channel", "eye doctor video marketing", "medical influencer India"],
+    });
+    return {
+      ...base,
+      scripts: [
+        serviceJsonLd({ name: "Video Content Building for Eyecare", serviceType: "Video & Reels Production", description, path: "/video-content" }),
+        breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Video Content", path: "/video-content" }]),
+      ],
+    };
+  },
   component: () => (
     <ServicePage
       eyebrow="Video Content Building"

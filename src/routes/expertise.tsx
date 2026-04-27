@@ -7,16 +7,23 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { buildPageMeta, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/expertise")({
-  head: () => ({
-    meta: [
-      { title: "20 Years of Eyecare Marketing Expertise — Transess Technologies" },
-      { name: "description", content: "Two decades of deep eyecare domain expertise. We understand the dynamics that drive 50% growth in turnover for eye hospitals and clinics." },
-      { property: "og:title", content: "20 Years of Eyecare Marketing Expertise" },
-      { property: "og:description", content: "Deep eyecare domain knowledge — the difference between a marketing vendor and a growth partner." },
-    ],
-  }),
+  head: () => {
+    const title = "20 Years of Eyecare Marketing Expertise in India | Transess Technologies";
+    const description = "Two decades dedicated exclusively to eye hospitals — procedure-level depth, patient psychology, conversion economics and compliance expertise that drive 50% turnover growth.";
+    const base = buildPageMeta({
+      title,
+      description,
+      path: "/expertise",
+      keywords: ["eyecare marketing expertise", "ophthalmology growth consultant", "eye hospital marketing partner India", "20 years eyecare"],
+    });
+    return {
+      ...base,
+      scripts: [breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Expertise", path: "/expertise" }])],
+    };
+  },
   component: ExpertisePage,
 });
 

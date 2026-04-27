@@ -3,16 +3,26 @@ import {
   Rocket, Target, Megaphone, BarChart3, MousePointerClick, Filter, Eye, ShieldCheck, MapPin,
 } from "lucide-react";
 import { ServicePage } from "@/components/site/ServicePage";
+import { buildPageMeta, serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/performance-marketing")({
-  head: () => ({
-    meta: [
-      { title: "Performance Marketing for Eyecare — Transess Technologies" },
-      { name: "description", content: "Google Ads & Meta campaigns engineered for high-intent eyecare patient acquisition. Built around procedure intent, geography, and conversion economics." },
-      { property: "og:title", content: "Performance Marketing for Eyecare" },
-      { property: "og:description", content: "Patient acquisition campaigns tuned to how eyecare patients search, scroll, and decide." },
-    ],
-  }),
+  head: () => {
+    const title = "Google Ads & Meta Ads for Eye Hospitals in India | Transess Technologies";
+    const description = "Procedure-aware Google & Meta ad campaigns for eye hospitals — engineered for cataract, LASIK, SMILE Pro and premium IOL acquisition with closed-loop attribution and 8:1 average ROAS.";
+    const base = buildPageMeta({
+      title,
+      description,
+      path: "/performance-marketing",
+      keywords: ["Google Ads eye hospital", "Meta Ads ophthalmology", "LASIK lead generation", "cataract patient acquisition", "eyecare PPC India"],
+    });
+    return {
+      ...base,
+      scripts: [
+        serviceJsonLd({ name: "Performance Marketing for Eyecare", serviceType: "Google Ads & Meta Ads", description, path: "/performance-marketing" }),
+        breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Performance Marketing", path: "/performance-marketing" }]),
+      ],
+    };
+  },
   component: () => (
     <ServicePage
       eyebrow="Performance Marketing"

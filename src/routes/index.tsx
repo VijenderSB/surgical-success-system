@@ -46,23 +46,43 @@ import { Footer } from "@/components/site/Footer";
 import { FlowDiagram } from "@/components/site/FlowDiagram";
 import heroImage from "@/assets/hero-system.jpg";
 import eyeGraphic from "@/assets/eye-graphic.png";
+import { buildPageMeta, faqJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+
+const HOME_FAQS = [
+  { q: "How is this different from hiring a marketing agency?", a: "Agencies typically deliver leads or run ads. We deliver consultations and surgeries by owning the entire funnel — from acquisition to CRM follow-up to appointment scheduling." },
+  { q: "How long before we see results?", a: "Most practices see meaningful lead flow in 30–45 days and measurable revenue impact within 90 days. Compounding growth typically begins around month 4–6." },
+  { q: "Do you work with single-location clinics?", a: "Yes. Our system is modular and scales from a single clinic to multi-location chains. The same playbook applies; only the scope changes." },
+  { q: "What does the CRM include and is it ours?", a: "We deploy a tailored CRM with lead capture, automated nurture, appointment scheduling, and performance dashboards. Your data stays yours and is exportable at any time." },
+  { q: "Will our doctors need to be on social media?", a: "Doctor branding accelerates trust, but we make it lightweight — short structured shoots produce months of content. Participation is recommended, not required." },
+  { q: "How do you measure success?", a: "We report on cost per consultation, consultation-to-surgery rate, and revenue attributed to acquisition — not impressions or clicks." },
+];
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Transess Technologies — Patient Acquisition Engine for Eyecare Practices" },
-      {
-        name: "description",
-        content:
-          "Scalable growth systems for eye hospitals and clinics. Up to 70% higher footfall and 50% revenue growth via digital, content, and CRM-driven conversion.",
-      },
-      { property: "og:title", content: "Transess Technologies — Eyecare Growth Platform" },
-      {
-        property: "og:description",
-        content: "End-to-end patient acquisition and CRM-driven conversion built exclusively for eyecare.",
-      },
-    ],
-  }),
+  head: () => {
+    const title = "Eyecare Patient Acquisition & Growth Engine | Transess Technologies";
+    const description = "India's eyecare-only growth partner. End-to-end digital infrastructure, performance marketing, content authority and CRM-driven conversion delivering up to 70% higher footfall and 50% revenue growth for eye hospitals.";
+    const base = buildPageMeta({
+      title,
+      description,
+      path: "/",
+      keywords: [
+        "eyecare marketing India",
+        "eye hospital marketing agency",
+        "ophthalmology patient acquisition",
+        "LASIK marketing",
+        "cataract surgery marketing",
+        "eyecare CRM",
+        "eye clinic SEO India",
+      ],
+    });
+    return {
+      ...base,
+      scripts: [
+        faqJsonLd(HOME_FAQS),
+        breadcrumbJsonLd([{ name: "Home", path: "/" }]),
+      ],
+    };
+  },
   component: Home,
 });
 
