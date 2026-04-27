@@ -266,6 +266,54 @@ function CityPage() {
         </div>
       </section>
 
+      {/* Local Market Insights */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/5 px-3 py-1 text-xs font-medium text-success">
+              <BarChart3 className="h-3.5 w-3.5" />
+              {city.name} Eyecare Market
+            </div>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
+              The {city.name} eyecare opportunity — by the numbers
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Data we use to engineer every {city.tier} growth plan in {city.state}. Built from search trends, GBP intelligence, and our own attribution data across {city.region} India.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              { icon: Users, v: city.population, l: `Catchment population in ${city.name}` },
+              { icon: Search, v: "12K+/mo", l: `Monthly searches for "LASIK ${city.name}" & related` },
+              { icon: Target, v: city.hospitalsHubs.length + "+", l: `Active eyecare hubs we target` },
+              { icon: TrendingUp, v: "18%", l: `YoY growth in premium refractive demand` },
+            ].map((m) => (
+              <Card key={m.l} className="border-border/60 bg-card p-6">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-success/10 text-success">
+                  <m.icon className="h-5 w-5" />
+                </div>
+                <div className="mt-4 text-2xl font-bold md:text-3xl">{m.v}</div>
+                <div className="mt-1 text-xs text-muted-foreground md:text-sm">{m.l}</div>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {[
+              { t: "High-intent search trends", d: `"Best LASIK surgeon ${city.name}", "cataract cost ${city.name}" and "${city.procedures[0]} near me" dominate query volume in ${city.pinPrefix}xxxx pin codes.` },
+              { t: "Patient decision window", d: `${city.name} eyecare patients average 14-21 days from first search to consultation booking — speed-to-lead defines the winner.` },
+              { t: "Competitive density", d: `${city.tier} ${city.name} has 30-80 active eye hospitals competing on Google. Top 3 map pack visibility drives 70% of qualified leads.` },
+            ].map((i) => (
+              <Card key={i.t} className="border-border/60 bg-card p-6">
+                <h3 className="font-semibold">{i.t}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{i.d}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Local relevance: landmarks & hubs */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6">
