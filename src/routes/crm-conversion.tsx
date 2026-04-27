@@ -27,6 +27,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { useLeadForm } from "@/components/site/LeadFormDialog";
 import {
   KpiStripSnapshot,
   FunnelSnapshot,
@@ -155,6 +156,7 @@ const uniqueFeatures: FeatureItem[] = [
 /* ---------------- PAGE ---------------- */
 
 function CrmConversionPage() {
+  const { open } = useLeadForm();
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
