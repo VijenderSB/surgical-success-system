@@ -4,24 +4,39 @@ import { Card } from "@/components/ui/card";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { CITIES, type CityTier } from "@/data/cities";
-
-const SITE_URL = "https://transess.lovable.app";
+import { buildPageMeta, breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/locations/")({
   head: () => {
     const title = "Eyecare Marketing Agency Locations Across India | 40+ Cities";
     const description =
       "Transess Technologies serves eye hospitals & ophthalmologists across 40+ Indian metros, Tier 1 and Tier 2 cities — Mumbai, Delhi NCR, Bangalore, Hyderabad, Chennai, Kolkata, Pune and more. Find your city.";
+    const base = buildPageMeta({
+      title,
+      description,
+      path: "/locations",
+      keywords: ["eyecare marketing India", "eye hospital agency cities", "ophthalmology marketing locations"],
+    });
     return {
-      meta: [
-        { title },
-        { name: "description", content: description },
-        { property: "og:title", content: title },
-        { property: "og:description", content: description },
-        { property: "og:url", content: `${SITE_URL}/locations` },
-        { name: "twitter:card", content: "summary_large_image" },
+      ...base,
+      scripts: [
+        breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Locations", path: "/locations" }]),
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Eyecare Marketing Locations Across India",
+            numberOfItems: CITIES.length,
+            itemListElement: CITIES.map((c, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              url: `${SITE_URL}/locations/${c.slug}`,
+              name: `Eyecare Marketing in ${c.name}`,
+            })),
+          }),
+        },
       ],
-      links: [{ rel: "canonical", href: `${SITE_URL}/locations` }],
     };
   },
   component: LocationsIndex,
