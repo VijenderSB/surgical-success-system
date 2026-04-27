@@ -48,14 +48,15 @@ export function Footer() {
   ];
 
   const locations: FooterLink[] = [
-    { label: "Eyecare Marketing Mumbai", href: "#" },
-    { label: "Eyecare Marketing Delhi NCR", href: "#" },
-    { label: "Eyecare Marketing Bangalore", href: "#" },
-    { label: "Eyecare Marketing Hyderabad", href: "#" },
-    { label: "Eyecare Marketing Chennai", href: "#" },
-    { label: "Eyecare Marketing Pune", href: "#" },
-    { label: "Eyecare Marketing Ahmedabad", href: "#" },
-    { label: "Eyecare Marketing Kolkata", href: "#" },
+    { label: "Eyecare Marketing Mumbai", href: "/locations/mumbai" },
+    { label: "Eyecare Marketing Delhi NCR", href: "/locations/delhi-ncr" },
+    { label: "Eyecare Marketing Bangalore", href: "/locations/bangalore" },
+    { label: "Eyecare Marketing Hyderabad", href: "/locations/hyderabad" },
+    { label: "Eyecare Marketing Chennai", href: "/locations/chennai" },
+    { label: "Eyecare Marketing Pune", href: "/locations/pune" },
+    { label: "Eyecare Marketing Ahmedabad", href: "/locations/ahmedabad" },
+    { label: "Eyecare Marketing Kolkata", href: "/locations/kolkata" },
+    { label: "All Locations Across India", href: "/locations" },
   ];
 
   const resources: FooterLink[] = [

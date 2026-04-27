@@ -10,16 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VideoContentRouteImport } from './routes/video-content'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as ExpertiseRouteImport } from './routes/expertise'
 import { Route as DigitalInfrastructureRouteImport } from './routes/digital-infrastructure'
 import { Route as CrmConversionRouteImport } from './routes/crm-conversion'
 import { Route as ContentAuthorityRouteImport } from './routes/content-authority'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LocationsIndexRouteImport } from './routes/locations.index'
+import { Route as LocationsCityRouteImport } from './routes/locations.$city'
 
 const VideoContentRoute = VideoContentRouteImport.update({
   id: '/video-content',
   path: '/video-content',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PerformanceMarketingRoute = PerformanceMarketingRouteImport.update({
@@ -52,6 +60,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationsIndexRoute = LocationsIndexRouteImport.update({
+  id: '/locations/',
+  path: '/locations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsCityRoute = LocationsCityRouteImport.update({
+  id: '/locations/$city',
+  path: '/locations/$city',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -60,7 +78,10 @@ export interface FileRoutesByFullPath {
   '/digital-infrastructure': typeof DigitalInfrastructureRoute
   '/expertise': typeof ExpertiseRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/video-content': typeof VideoContentRoute
+  '/locations/$city': typeof LocationsCityRoute
+  '/locations/': typeof LocationsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -69,7 +90,10 @@ export interface FileRoutesByTo {
   '/digital-infrastructure': typeof DigitalInfrastructureRoute
   '/expertise': typeof ExpertiseRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/video-content': typeof VideoContentRoute
+  '/locations/$city': typeof LocationsCityRoute
+  '/locations': typeof LocationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -79,7 +103,10 @@ export interface FileRoutesById {
   '/digital-infrastructure': typeof DigitalInfrastructureRoute
   '/expertise': typeof ExpertiseRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/video-content': typeof VideoContentRoute
+  '/locations/$city': typeof LocationsCityRoute
+  '/locations/': typeof LocationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,7 +117,10 @@ export interface FileRouteTypes {
     | '/digital-infrastructure'
     | '/expertise'
     | '/performance-marketing'
+    | '/sitemap.xml'
     | '/video-content'
+    | '/locations/$city'
+    | '/locations/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -99,7 +129,10 @@ export interface FileRouteTypes {
     | '/digital-infrastructure'
     | '/expertise'
     | '/performance-marketing'
+    | '/sitemap.xml'
     | '/video-content'
+    | '/locations/$city'
+    | '/locations'
   id:
     | '__root__'
     | '/'
@@ -108,7 +141,10 @@ export interface FileRouteTypes {
     | '/digital-infrastructure'
     | '/expertise'
     | '/performance-marketing'
+    | '/sitemap.xml'
     | '/video-content'
+    | '/locations/$city'
+    | '/locations/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -118,7 +154,10 @@ export interface RootRouteChildren {
   DigitalInfrastructureRoute: typeof DigitalInfrastructureRoute
   ExpertiseRoute: typeof ExpertiseRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   VideoContentRoute: typeof VideoContentRoute
+  LocationsCityRoute: typeof LocationsCityRoute
+  LocationsIndexRoute: typeof LocationsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -128,6 +167,13 @@ declare module '@tanstack/react-router' {
       path: '/video-content'
       fullPath: '/video-content'
       preLoaderRoute: typeof VideoContentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/performance-marketing': {
@@ -172,6 +218,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations/': {
+      id: '/locations/'
+      path: '/locations'
+      fullPath: '/locations/'
+      preLoaderRoute: typeof LocationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/$city': {
+      id: '/locations/$city'
+      path: '/locations/$city'
+      fullPath: '/locations/$city'
+      preLoaderRoute: typeof LocationsCityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -182,7 +242,10 @@ const rootRouteChildren: RootRouteChildren = {
   DigitalInfrastructureRoute: DigitalInfrastructureRoute,
   ExpertiseRoute: ExpertiseRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   VideoContentRoute: VideoContentRoute,
+  LocationsCityRoute: LocationsCityRoute,
+  LocationsIndexRoute: LocationsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
