@@ -184,7 +184,7 @@ function CrmConversionPage() {
                   high-intent patients straight to the booking desk.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <Button size="lg" className="h-12 px-6 text-base shadow-glow">
+                  <Button size="lg" className="h-12 px-6 text-base shadow-glow" onClick={() => open("CRM hero")}>
                     Schedule a Growth Consultation
                     <ArrowRight className="ml-1 h-4 w-4" />
                   </Button>
@@ -443,7 +443,7 @@ function CrmConversionPage() {
               revenue leaks, and design your system.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button size="lg" className="h-12 px-6 text-base shadow-glow">
+              <Button size="lg" className="h-12 px-6 text-base shadow-glow" onClick={() => open("CRM CTA")}>
                 Schedule a Growth Consultation
                 <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
