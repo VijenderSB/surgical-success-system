@@ -98,6 +98,52 @@ export const Route = createFileRoute("/locations/$city")({
             },
           }),
         },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+              { "@type": "ListItem", position: 2, name: "Locations", item: `${SITE_URL}/locations` },
+              { "@type": "ListItem", position: 3, name: city.name, item: url },
+            ],
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: `How do you market an eye hospital in ${city.name}?`,
+                acceptedAnswer: { "@type": "Answer", text: `We deploy a 5-layer system: hyper-local SEO targeting ${city.landmarks[0]} and adjoining areas, Google & Meta performance ads, Google Business Profile dominance, doctor-led video content, and a WhatsApp-first CRM. Most ${city.name} clinics see 40-70% footfall lift in 90 days.` },
+              },
+              {
+                "@type": "Question",
+                name: `Which procedures convert best in ${city.name}?`,
+                acceptedAnswer: { "@type": "Answer", text: `Based on our work across ${city.state}, the highest-ROI procedures in ${city.name} are ${city.procedures.join(", ")}. Premium IOL and refractive surgery (LASIK, SMILE Pro, Contoura) consistently deliver the strongest unit economics.` },
+              },
+              {
+                "@type": "Question",
+                name: `What's the typical investment for eyecare marketing in ${city.name}?`,
+                acceptedAnswer: { "@type": "Answer", text: `${city.tier} cities like ${city.name} typically deploy ₹1.5L-₹6L/month across paid media, SEO, content & CRM tooling. We build the plan around your current footfall, target procedures, and 12-month revenue goal — not a fixed package.` },
+              },
+              {
+                "@type": "Question",
+                name: "How long until we see results?",
+                acceptedAnswer: { "@type": "Answer", text: `Performance ads & WhatsApp CRM start delivering qualified leads in week 1-2. SEO and content authority compound from month 3 onwards. Most ${city.name} practices cross break-even on marketing spend within 60-90 days.` },
+              },
+              {
+                "@type": "Question",
+                name: "Do you work exclusively with one clinic per city?",
+                acceptedAnswer: { "@type": "Answer", text: `Yes. We work with only one eyecare brand per ${city.name} catchment to avoid conflict of interest. First-mover advantage matters — once we partner, your competitors cannot work with us.` },
+              },
+            ],
+          }),
+        },
       ],
     };
   },
