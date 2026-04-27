@@ -26,6 +26,9 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
+          <Link to="/" className="transition-colors hover:text-foreground" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground" }}>
+            Home
+          </Link>
           <DropdownMenu>
             <DropdownMenuTrigger className="inline-flex items-center gap-1 outline-none transition-colors hover:text-foreground">
               Services <ChevronDown className="h-3.5 w-3.5" />
