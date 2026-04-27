@@ -64,6 +64,7 @@ function Home() {
       <Navbar />
       <main>
         <Hero />
+        <ExpertiseBanner />
         <Problem />
         <Solution />
         <Ecosystem />
