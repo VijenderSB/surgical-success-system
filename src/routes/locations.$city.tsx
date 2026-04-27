@@ -158,6 +158,15 @@ function CityPage() {
     { icon: ShieldCheck, title: "WhatsApp + CRM Speed-to-Lead", desc: "Sub-60-second lead response — the single biggest conversion lever for premium eyecare." },
   ];
 
+  const ecosystem = [
+    { icon: Search, title: "Discovery & Search", desc: `Patients in ${city.name} start on Google. We own the SERP for procedure + locality keywords.` },
+    { icon: Video, title: "Authority & Trust", desc: "Doctor-led video, reels & educational content that compress the consideration window." },
+    { icon: Target, title: "Performance Media", desc: "Google, Meta & YouTube campaigns engineered around procedure unit economics — not vanity CPLs." },
+    { icon: MessageSquare, title: "Speed-to-Lead CRM", desc: "WhatsApp-first response in <60 seconds. The single biggest lever in premium eyecare conversion." },
+    { icon: Users, title: "Counsellor Enablement", desc: "Scripts, objection libraries & call coaching that turn enquiries into surgery bookings." },
+    { icon: LineChart, title: "Revenue Attribution", desc: "Procedure-level dashboards tying every rupee of spend to LASIK, SMILE Pro, FLACS & IOL revenue." },
+  ];
+
   const faqs = [
     {
       q: `How do you market an eye hospital in ${city.name}?`,
@@ -178,6 +187,18 @@ function CityPage() {
     {
       q: `Do you work exclusively with one clinic per city?`,
       a: `Yes. We work with only one eyecare brand per ${city.name} catchment to avoid conflict of interest. First-mover advantage matters — once we partner, your competitors cannot work with us.`,
+    },
+    {
+      q: `What makes your eyecare marketing different from a general digital agency?`,
+      a: `20 years exclusively in eyecare. We understand patient psychology around vision loss, the economics of LASIK vs. ICL vs. SMILE Pro, counsellor conversion choreography, and what drives a ${city.name} patient to choose your hospital over a chain. Generalist agencies optimise clicks; we optimise surgery bookings.`,
+    },
+    {
+      q: `Can you work with both standalone surgeons and multi-specialty eye hospitals in ${city.name}?`,
+      a: `Yes. Our playbook scales from a single refractive surgeon's practice to multi-location eye hospital chains. The funnel architecture changes — solo practices lean on personal brand and reels; hospitals lean on procedure-line authority and counsellor systems — but the growth engine is the same.`,
+    },
+    {
+      q: `Do you handle regional language content for ${city.state}?`,
+      a: `Absolutely. Reels, ad creative, landing pages and WhatsApp scripts are produced in the regional languages your ${city.name} patients actually search and chat in. This single change typically lifts conversion 30-50%.`,
     },
   ];
 
