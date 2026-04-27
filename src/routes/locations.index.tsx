@@ -5,13 +5,13 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { CITIES, type CityTier } from "@/data/cities";
 
-const SITE_URL = "https://visiongrowth.lovable.app";
+const SITE_URL = "https://transess.lovable.app";
 
 export const Route = createFileRoute("/locations/")({
   head: () => {
     const title = "Eyecare Marketing Agency Locations Across India | 40+ Cities";
     const description =
-      "VisionGrowth serves eye hospitals & ophthalmologists across 40+ Indian metros, Tier 1 and Tier 2 cities — Mumbai, Delhi NCR, Bangalore, Hyderabad, Chennai, Kolkata, Pune and more. Find your city.";
+      "Transess Technologies serves eye hospitals & ophthalmologists across 40+ Indian metros, Tier 1 and Tier 2 cities — Mumbai, Delhi NCR, Bangalore, Hyderabad, Chennai, Kolkata, Pune and more. Find your city.";
     return {
       meta: [
         { title },

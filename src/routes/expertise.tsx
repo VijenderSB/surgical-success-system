@@ -11,7 +11,7 @@ import { Footer } from "@/components/site/Footer";
 export const Route = createFileRoute("/expertise")({
   head: () => ({
     meta: [
-      { title: "20 Years of Eyecare Marketing Expertise — VisionGrowth" },
+      { title: "20 Years of Eyecare Marketing Expertise — Transess Technologies" },
       { name: "description", content: "Two decades of deep eyecare domain expertise. We understand the dynamics that drive 50% growth in turnover for eye hospitals and clinics." },
       { property: "og:title", content: "20 Years of Eyecare Marketing Expertise" },
       { property: "og:description", content: "Deep eyecare domain knowledge — the difference between a marketing vendor and a growth partner." },

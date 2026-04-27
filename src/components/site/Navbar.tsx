@@ -24,7 +24,7 @@ export function Navbar() {
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-glow text-primary-foreground shadow-soft">
             <Eye className="h-5 w-5" />
           </div>
-          <span className="text-lg font-bold tracking-tight">VisionGrowth</span>
+          <span className="text-lg font-bold tracking-tight">Transess Technologies</span>
         </Link>
 
         <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">

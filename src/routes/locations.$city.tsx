@@ -26,7 +26,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { getCityBySlug } from "@/data/cities";
 
-const SITE_URL = "https://visiongrowth.lovable.app";
+const SITE_URL = "https://transess.lovable.app";
 
 export const Route = createFileRoute("/locations/$city")({
   loader: ({ params }) => {
@@ -74,7 +74,7 @@ export const Route = createFileRoute("/locations/$city")({
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "MedicalBusiness",
-            name: `VisionGrowth — Eyecare Marketing Agency, ${city.name}`,
+            name: `Transess Technologies — Eyecare Marketing Agency, ${city.name}`,
             description,
             url,
             areaServed: {
@@ -205,7 +205,7 @@ function CityPage() {
             </span>
           </h1>
           <p className="mt-5 max-w-3xl text-lg text-muted-foreground md:text-xl">
-            {city.intro} VisionGrowth builds patient acquisition systems for eye hospitals, ophthalmologists & refractive surgeons across {city.name} and {city.state} — covering {city.landmarks.slice(0, 3).join(", ")} and beyond.
+            {city.intro} Transess Technologies builds patient acquisition systems for eye hospitals, ophthalmologists & refractive surgeons across {city.name} and {city.state} — covering {city.landmarks.slice(0, 3).join(", ")} and beyond.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -352,7 +352,7 @@ function CityPage() {
                   {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-success" />)}
                 </div>
                 <p className="mt-3 text-sm italic text-muted-foreground">
-                  "VisionGrowth doubled our LASIK consults in {city.name} within four months. Their {city.region} India playbook is unmatched."
+                  "Transess Technologies doubled our LASIK consults in {city.name} within four months. Their {city.region} India playbook is unmatched."
                 </p>
                 <p className="mt-2 text-xs font-medium">— Medical Director, {city.tier} Eye Hospital, {city.name}</p>
               </div>
@@ -389,7 +389,7 @@ function CityPage() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button asChild size="lg" className="shadow-soft">
-              <a href="mailto:hello@visiongrowth.in">Request {city.name} Audit</a>
+              <a href="mailto:hello@transess.com">Request {city.name} Audit</a>
             </Button>
             <Button asChild size="lg" variant="outline">
               <Link to="/locations">See Other Cities</Link>
