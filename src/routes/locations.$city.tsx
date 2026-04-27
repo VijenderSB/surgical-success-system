@@ -11,6 +11,10 @@ import {
   Search,
   ShieldCheck,
   Sparkles,
+  BarChart3,
+  Users,
+  Target,
+  Quote,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
