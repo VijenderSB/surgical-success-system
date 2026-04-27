@@ -65,6 +65,23 @@ export const Route = createFileRoute("/crm-conversion")({
         { metric: "+42%", label: "Surgery conversion" },
         { metric: "−55%", label: "Lead leakage" },
       ]}
+      uniqueFeatures={{
+        eyebrow: "What Makes Our CRM Different",
+        title: "Unique CRM Capabilities",
+        highlight: "Built to Lift Eye Centre Footfall & Revenue",
+        desc: "Beyond a generic pipeline, our CRM is engineered around how eyecare patients decide — combining AI agents, omnichannel outreach, and procedure-aware automations that compound footfall and surgery revenue month over month.",
+        items: [
+          { icon: Bot, tag: "AI Agent", title: "AI Lead Qualifier", desc: "An always-on AI agent screens every inquiry, classifies intent (LASIK vs Cataract vs Retina), and routes hot leads to a human counsellor in seconds." },
+          { icon: Inbox, tag: "Omnichannel", title: "Unified Smart Inbox", desc: "Calls, WhatsApp, Instagram DMs, Google forms, walk-ins — one inbox, one patient timeline, zero leakage between channels." },
+          { icon: Workflow, tag: "Automation", title: "Procedure-Aware Journeys", desc: "Pre-built nurture playbooks per procedure with educational drips, doctor reels, and pre-op checklists timed to the decision window." },
+          { icon: Mic, tag: "AI Voice", title: "AI Voice Follow-Ups", desc: "Multilingual AI voice agent re-engages cold leads, books slots, and confirms appointments — Hindi, English, and regional languages." },
+          { icon: BellRing, tag: "Speed-to-Lead", title: "<60s SLA Alerts", desc: "Real-time push, SMS, and call alerts the moment a lead lands. SLA breaches escalate automatically to clinic managers." },
+          { icon: Target, tag: "Intent Scoring", title: "Patient Intent Score", desc: "Every lead gets a live 0–100 intent score driven by source, behaviour, and replies — counsellors call the hottest first." },
+          { icon: Calendar, tag: "Self-Serve", title: "Doctor Calendar Booking", desc: "Patients pick a doctor, slot, and OPD location in a 30-second flow. Auto-syncs with HIS/EMR and tele-calling team." },
+          { icon: Repeat, tag: "Reactivation", title: "Second-Eye & Recall Engine", desc: "Automatically re-engages post-op patients for second-eye procedures, annual checkups, and family screening camps." },
+          { icon: BarChart3, tag: "Revenue View", title: "Doctor & Procedure P&L", desc: "Live dashboards show footfall, conversion, and revenue split by doctor, procedure, channel, and city — end-to-end ROI." },
+        ],
+      }}
     />
   ),
 });
