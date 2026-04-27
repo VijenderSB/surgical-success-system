@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { useLeadForm } from "@/components/site/LeadFormDialog";
+import { WhatsAppCTA } from "@/components/site/WhatsAppCTA";
 import { buildPageMeta, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/expertise")({
@@ -97,6 +98,7 @@ function ExpertisePage() {
                   Schedule a Growth Consultation
                   <ArrowRight className="ml-1 h-4 w-4" />
                 </Button>
+                <WhatsAppCTA context="Expertise hero" />
               </div>
             </div>
           </div>
@@ -244,6 +246,10 @@ function ExpertisePage() {
               <Button asChild size="lg" variant="outline" className="h-12 border-white/30 bg-white/5 px-6 text-base text-white hover:bg-white/10 hover:text-white">
                 <Link to="/">Back to Home</Link>
               </Button>
+              <WhatsAppCTA
+                context="Expertise CTA"
+                className="h-12 border-white/30 bg-white/10 px-6 text-white hover:bg-white/20 hover:text-white"
+              />
             </div>
           </div>
         </section>

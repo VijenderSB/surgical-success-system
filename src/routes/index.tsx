@@ -45,6 +45,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FlowDiagram } from "@/components/site/FlowDiagram";
 import { useLeadForm } from "@/components/site/LeadFormDialog";
+import { WhatsAppCTA } from "@/components/site/WhatsAppCTA";
 import heroImage from "@/assets/hero-system.jpg";
 import eyeGraphic from "@/assets/eye-graphic.png";
 import { buildPageMeta, faqJsonLd, breadcrumbJsonLd } from "@/lib/seo";
@@ -283,6 +284,7 @@ function Hero() {
               <Button size="lg" variant="outline" className="h-12 px-6 text-base" onClick={() => open("Home hero · Schedule")}>
                 Schedule a Growth Consultation
               </Button>
+              <WhatsAppCTA context="Home hero · Schedule" />
             </div>
 
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
@@ -891,6 +893,10 @@ function FinalCTA() {
             <Button size="lg" variant="outline" className="h-12 border-white/30 bg-transparent px-7 text-base text-white hover:bg-white/10 hover:text-white">
               Download Capability Deck
             </Button>
+            <WhatsAppCTA
+              context="Home final CTA"
+              className="h-12 border-white/30 bg-white/10 px-7 text-white hover:bg-white/20 hover:text-white"
+            />
           </div>
 
           <p className="mt-6 text-xs text-white/50">
