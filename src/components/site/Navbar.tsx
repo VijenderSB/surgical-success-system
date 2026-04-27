@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ChevronDown } from "lucide-react";
 import logo from "@/assets/transess-logo.png";
 import { Button } from "@/components/ui/button";
+import { useLeadForm } from "@/components/site/LeadFormDialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function Navbar() {
+  const { open } = useLeadForm();
   const services = [
     { to: "/digital-infrastructure" as const, label: "Digital Infrastructure" },
     { to: "/performance-marketing" as const, label: "Performance Marketing" },
@@ -54,8 +56,8 @@ export function Navbar() {
           <a href="/#faq" className="transition-colors hover:text-foreground">FAQ</a>
         </nav>
 
-        <Button asChild size="sm" className="shadow-soft">
-          <a href="#contact">Book Consultation</a>
+        <Button size="sm" className="shadow-soft" onClick={() => open("Navbar")}>
+          Book Consultation
         </Button>
       </div>
     </header>
