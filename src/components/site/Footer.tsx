@@ -12,11 +12,12 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { useLeadForm } from "@/components/site/LeadFormDialog";
 
 type FooterLink = { label: string; to?: string; href?: string };
 
 export function Footer() {
+  const { open } = useLeadForm();
   const services: FooterLink[] = [
     { label: "Digital Infrastructure", to: "/digital-infrastructure" },
     { label: "Performance Marketing", to: "/performance-marketing" },
@@ -86,16 +87,9 @@ export function Footer() {
               Get a free growth audit tailored to your specialty and city.
             </p>
           </div>
-          <div className="flex w-full max-w-md items-center gap-2">
-            <Input
-              type="email"
-              placeholder="your@clinic.com"
-              className="bg-background"
-            />
-            <Button className="shrink-0 shadow-soft">
-              Request Audit <ArrowRight className="ml-1.5 h-4 w-4" />
-            </Button>
-          </div>
+          <Button size="lg" className="shrink-0 shadow-soft" onClick={() => open("Footer audit strip")}>
+            Request Audit <ArrowRight className="ml-1.5 h-4 w-4" />
+          </Button>
         </div>
       </div>
 

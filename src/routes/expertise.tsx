@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { useLeadForm } from "@/components/site/LeadFormDialog";
 import { buildPageMeta, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/expertise")({
@@ -28,6 +29,7 @@ export const Route = createFileRoute("/expertise")({
 });
 
 function ExpertisePage() {
+  const { open } = useLeadForm();
   const pillars = [
     { icon: Eye, title: "Eyecare-Only Focus", desc: "Two decades dedicated exclusively to eye hospitals — no detours into dental, derma, or dialysis." },
     { icon: Stethoscope, title: "Procedure-Level Depth", desc: "Cataract, LASIK, Glaucoma, Squint, Retina, Cornea — we know the patient, the economics, and the journey for each." },
@@ -91,7 +93,7 @@ function ExpertisePage() {
               </div>
 
               <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <Button size="lg" className="h-12 px-6 text-base shadow-glow">
+                <Button size="lg" className="h-12 px-6 text-base shadow-glow" onClick={() => open("Expertise hero")}>
                   Schedule a Growth Consultation
                   <ArrowRight className="ml-1 h-4 w-4" />
                 </Button>
@@ -235,7 +237,7 @@ function ExpertisePage() {
               Schedule a growth consultation — we'll audit your funnel and show you exactly where your 50% growth is hiding.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button size="lg" className="h-12 px-6 text-base shadow-glow">
+              <Button size="lg" className="h-12 px-6 text-base shadow-glow" onClick={() => open("Expertise CTA")}>
                 Schedule a Growth Consultation
                 <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
