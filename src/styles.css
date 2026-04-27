@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap");
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -46,6 +47,12 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
+  --color-primary-glow: var(--primary-glow);
+  --color-primary-deep: var(--primary-deep);
+  --color-success: var(--success);
+  --color-surface-tint: var(--surface-tint);
+  --color-surface-deep: var(--surface-deep);
+  --color-surface-deep-foreground: var(--surface-deep-foreground);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -62,26 +69,44 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.875rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.18 0.03 250);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.18 0.03 250);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --popover-foreground: oklch(0.18 0.03 250);
+  --primary: oklch(0.52 0.18 254);
+  --primary-foreground: oklch(1 0 0);
+  --primary-glow: oklch(0.66 0.16 240);
+  --primary-deep: oklch(0.38 0.18 258);
+  --secondary: oklch(0.97 0.015 250);
+  --secondary-foreground: oklch(0.25 0.05 255);
+  --muted: oklch(0.975 0.01 250);
+  --muted-foreground: oklch(0.5 0.025 255);
+  --accent: oklch(0.95 0.04 230);
+  --accent-foreground: oklch(0.32 0.14 255);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --success: oklch(0.65 0.16 155);
+  --border: oklch(0.92 0.012 250);
+  --input: oklch(0.92 0.012 250);
+  --ring: oklch(0.52 0.18 254);
+
+  --surface-tint: oklch(0.985 0.012 245);
+  --surface-deep: oklch(0.18 0.04 255);
+  --surface-deep-foreground: oklch(0.98 0.01 250);
+
+  --gradient-hero: linear-gradient(135deg, oklch(0.98 0.015 245) 0%, oklch(0.95 0.04 230) 100%);
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-glow) 100%);
+  --gradient-deep: linear-gradient(135deg, oklch(0.22 0.06 258) 0%, oklch(0.32 0.12 255) 100%);
+  --gradient-soft: linear-gradient(180deg, oklch(1 0 0) 0%, oklch(0.97 0.02 245) 100%);
+
+  --shadow-soft: 0 1px 2px oklch(0.5 0.05 255 / 0.04), 0 4px 12px oklch(0.5 0.05 255 / 0.06);
+  --shadow-elevated: 0 8px 24px -8px oklch(0.52 0.18 254 / 0.18), 0 2px 6px oklch(0.5 0.05 255 / 0.06);
+  --shadow-glow: 0 12px 40px -12px oklch(0.52 0.18 254 / 0.35);
+
+  --transition-smooth: cubic-bezier(0.32, 0.72, 0, 1);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -137,8 +162,36 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+    letter-spacing: -0.02em;
   }
 }
+
+@layer utilities {
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .bg-gradient-deep { background: var(--gradient-deep); }
+  .bg-gradient-soft { background: var(--gradient-soft); }
+  .shadow-elevated { box-shadow: var(--shadow-elevated); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+}
+
