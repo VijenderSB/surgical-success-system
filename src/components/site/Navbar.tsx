@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Eye, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import logo from "@/assets/transess-logo.png";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -20,11 +21,8 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-glow text-primary-foreground shadow-soft">
-            <Eye className="h-5 w-5" />
-          </div>
-          <span className="text-lg font-bold tracking-tight">Transess Technologies</span>
+        <Link to="/" className="flex items-center" aria-label="Transess Technologies">
+          <img src={logo} alt="Transess Technologies — Eyecare Digital Marketing Agency" className="h-10 w-auto md:h-11" />
         </Link>
 
         <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
