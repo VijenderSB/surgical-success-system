@@ -7,7 +7,7 @@ import { ServicePage } from "@/components/site/ServicePage";
 export const Route = createFileRoute("/video-content")({
   head: () => ({
     meta: [
-      { title: "Video Content Building for Eyecare Doctors — VisionGrowth" },
+      { title: "Video Content Building for Eyecare Doctors — Transess Technologies" },
       { name: "description", content: "Video & Reels production across YouTube, Instagram & Facebook — positioning eyecare doctors as recognised influencers in their region." },
       { property: "og:title", content: "Video Content Building — Become an Eyecare Influencer" },
       { property: "og:description", content: "End-to-end video & reels system for eye doctors across YouTube, Instagram, and Facebook." },

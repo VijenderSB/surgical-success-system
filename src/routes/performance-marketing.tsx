@@ -7,7 +7,7 @@ import { ServicePage } from "@/components/site/ServicePage";
 export const Route = createFileRoute("/performance-marketing")({
   head: () => ({
     meta: [
-      { title: "Performance Marketing for Eyecare — VisionGrowth" },
+      { title: "Performance Marketing for Eyecare — Transess Technologies" },
       { name: "description", content: "Google Ads & Meta campaigns engineered for high-intent eyecare patient acquisition. Built around procedure intent, geography, and conversion economics." },
       { property: "og:title", content: "Performance Marketing for Eyecare" },
       { property: "og:description", content: "Patient acquisition campaigns tuned to how eyecare patients search, scroll, and decide." },

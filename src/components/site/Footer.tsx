@@ -108,7 +108,7 @@ export function Footer() {
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-glow text-primary-foreground">
                 <Eye className="h-5 w-5" />
               </div>
-              <span className="text-lg font-bold tracking-tight">VisionGrowth</span>
+              <span className="text-lg font-bold tracking-tight">Transess Technologies</span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               The complete patient acquisition and conversion ecosystem built
@@ -126,9 +126,9 @@ export function Footer() {
             </ul>
 
             <div className="mt-6 space-y-2.5 text-sm text-muted-foreground">
-              <a href="mailto:hello@visiongrowth.in" className="flex items-center gap-2 transition-colors hover:text-foreground">
+              <a href="mailto:hello@transess.com" className="flex items-center gap-2 transition-colors hover:text-foreground">
                 <Mail className="h-4 w-4 text-success" />
-                hello@visiongrowth.in
+                hello@transess.com
               </a>
               <a href="tel:+919999999999" className="flex items-center gap-2 transition-colors hover:text-foreground">
                 <Phone className="h-4 w-4 text-success" />
@@ -177,7 +177,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} VisionGrowth. Built for eyecare leaders.</p>
+          <p>© {new Date().getFullYear()} Transess Technologies. Built for eyecare leaders.</p>
           <div className="flex flex-wrap gap-6">
             <a href="#" className="hover:text-foreground">Privacy Policy</a>
             <a href="#" className="hover:text-foreground">Terms of Service</a>

@@ -7,7 +7,7 @@ import { ServicePage } from "@/components/site/ServicePage";
 export const Route = createFileRoute("/content-authority")({
   head: () => ({
     meta: [
-      { title: "Content & Authority for Eyecare Doctors — VisionGrowth" },
+      { title: "Content & Authority for Eyecare Doctors — Transess Technologies" },
       { name: "description", content: "Doctor branding, social reels, and educational content that builds trust with eyecare patients before the first call." },
       { property: "og:title", content: "Content & Authority for Eyecare" },
       { property: "og:description", content: "Doctor-led content that earns patient trust before the consultation." },

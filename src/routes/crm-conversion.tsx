@@ -8,7 +8,7 @@ import { ServicePage } from "@/components/site/ServicePage";
 export const Route = createFileRoute("/crm-conversion")({
   head: () => ({
     meta: [
-      { title: "CRM & Conversion System for Eyecare — VisionGrowth" },
+      { title: "CRM & Conversion System for Eyecare — Transess Technologies" },
       { name: "description", content: "Where most agencies stop, we begin. Every eyecare lead is tracked, nurtured, and routed to consultation through structured follow-ups and pipeline analytics." },
       { property: "og:title", content: "CRM & Conversion System for Eyecare" },
       { property: "og:description", content: "Turn eyecare inquiries into consultations and surgeries with a structured CRM-driven conversion engine." },

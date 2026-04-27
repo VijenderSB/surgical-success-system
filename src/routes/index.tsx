@@ -50,13 +50,13 @@ import eyeGraphic from "@/assets/eye-graphic.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "VisionGrowth — Patient Acquisition Engine for Eyecare Practices" },
+      { title: "Transess Technologies — Patient Acquisition Engine for Eyecare Practices" },
       {
         name: "description",
         content:
           "Scalable growth systems for eye hospitals and clinics. Up to 70% higher footfall and 50% revenue growth via digital, content, and CRM-driven conversion.",
       },
-      { property: "og:title", content: "VisionGrowth — Eyecare Growth Platform" },
+      { property: "og:title", content: "Transess Technologies — Eyecare Growth Platform" },
       {
         property: "og:description",
         content: "End-to-end patient acquisition and CRM-driven conversion built exclusively for eyecare.",

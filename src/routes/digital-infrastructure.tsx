@@ -7,7 +7,7 @@ import { ServicePage } from "@/components/site/ServicePage";
 export const Route = createFileRoute("/digital-infrastructure")({
   head: () => ({
     meta: [
-      { title: "Digital Infrastructure for Eyecare — VisionGrowth" },
+      { title: "Digital Infrastructure for Eyecare — Transess Technologies" },
       { name: "description", content: "High-converting websites, technical SEO, and medical-intent landing pages built specifically for eyecare patient engagement and consultation bookings." },
       { property: "og:title", content: "Digital Infrastructure for Eyecare" },
       { property: "og:description", content: "Eyecare-specific websites and SEO built for how patients actually research and decide on eye care." },

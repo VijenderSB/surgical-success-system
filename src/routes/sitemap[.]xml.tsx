@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CITIES } from "@/data/cities";
 
-const SITE_URL = "https://visiongrowth.lovable.app";
+const SITE_URL = "https://transess.lovable.app";
 
 const STATIC_PATHS = [
   "/",
