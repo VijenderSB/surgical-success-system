@@ -180,37 +180,7 @@ function Hero() {
   );
 }
 
-/* ---------- 1.5 EXPERTISE BANNER ---------- */
-function ExpertiseBanner() {
-  return (
-    <section className="border-y border-border/60 bg-card py-10">
-      <div className="mx-auto grid max-w-7xl gap-6 px-6 md:grid-cols-[auto_1fr_auto] md:items-center">
-        <div className="flex items-center gap-4">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary-glow text-primary-foreground shadow-soft">
-            <span className="text-lg font-bold">20+</span>
-          </div>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-primary">Years in Eyecare</p>
-            <p className="text-sm text-muted-foreground">Deep domain expertise — not generic medical marketing.</p>
-          </div>
-        </div>
-        <div className="hidden md:block">
-          <p className="text-base font-semibold text-foreground">
-            We understand the whole eyecare dynamic that drives <span className="text-gradient-primary">50% growth in turnover</span>.
-          </p>
-        </div>
-        <Button asChild variant="outline" size="lg" className="h-11">
-          <Link to="/expertise">
-            See Our Expertise
-            <ArrowRight className="ml-1 h-4 w-4" />
-          </Link>
-        </Button>
-      </div>
-    </section>
-  );
-}
-
-
+/* ---------- 2. PROBLEM ---------- */
 function Problem() {
   const problems = [
     { icon: Search, title: "Patients decide before visiting", desc: "Online research drives 80% of healthcare decisions today." },
