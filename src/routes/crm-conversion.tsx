@@ -17,6 +17,7 @@ export const Route = createFileRoute("/crm-conversion")({
   }),
   component: () => (
     <ServicePage
+      afterCapabilities={<CrmDashboardMock />}
       eyebrow="CRM & Conversion — Our Core Strength"
       heroIcon={Database}
       title="The CRM & Conversion System"
