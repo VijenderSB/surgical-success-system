@@ -11,10 +11,6 @@ import {
   Search,
   ShieldCheck,
   Sparkles,
-  BarChart3,
-  Users,
-  Target,
-  Quote,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -266,54 +262,6 @@ function CityPage() {
         </div>
       </section>
 
-      {/* Local Market Insights */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/5 px-3 py-1 text-xs font-medium text-success">
-              <BarChart3 className="h-3.5 w-3.5" />
-              {city.name} Eyecare Market
-            </div>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
-              The {city.name} eyecare opportunity — by the numbers
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              Data we use to engineer every {city.tier} growth plan in {city.state}. Built from search trends, GBP intelligence, and our own attribution data across {city.region} India.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              { icon: Users, v: city.population, l: `Catchment population in ${city.name}` },
-              { icon: Search, v: "12K+/mo", l: `Monthly searches for "LASIK ${city.name}" & related` },
-              { icon: Target, v: city.hospitalsHubs.length + "+", l: `Active eyecare hubs we target` },
-              { icon: TrendingUp, v: "18%", l: `YoY growth in premium refractive demand` },
-            ].map((m) => (
-              <Card key={m.l} className="border-border/60 bg-card p-6">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-success/10 text-success">
-                  <m.icon className="h-5 w-5" />
-                </div>
-                <div className="mt-4 text-2xl font-bold md:text-3xl">{m.v}</div>
-                <div className="mt-1 text-xs text-muted-foreground md:text-sm">{m.l}</div>
-              </Card>
-            ))}
-          </div>
-
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {[
-              { t: "High-intent search trends", d: `"Best LASIK surgeon ${city.name}", "cataract cost ${city.name}" and "${city.procedures[0]} near me" dominate query volume in ${city.pinPrefix}xxxx pin codes.` },
-              { t: "Patient decision window", d: `${city.name} eyecare patients average 14-21 days from first search to consultation booking — speed-to-lead defines the winner.` },
-              { t: "Competitive density", d: `${city.tier} ${city.name} has 30-80 active eye hospitals competing on Google. Top 3 map pack visibility drives 70% of qualified leads.` },
-            ].map((i) => (
-              <Card key={i.t} className="border-border/60 bg-card p-6">
-                <h3 className="font-semibold">{i.t}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{i.d}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Local relevance: landmarks & hubs */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6">
@@ -365,61 +313,6 @@ function CityPage() {
                 <p className="mt-2 text-xs font-medium">— Medical Director, {city.tier} Eye Hospital, {city.name}</p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Case Studies */}
-      <section className="border-t border-border/60 bg-surface-tint/40 py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/5 px-3 py-1 text-xs font-medium text-success">
-              <Sparkles className="h-3.5 w-3.5" />
-              {city.name} Success Stories
-            </div>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
-              Eye hospitals we've scaled in {city.name} & {city.state}
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              Real outcomes from {city.tier} eyecare practices we partnered with. Names anonymized — full case decks shared on request.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                tag: `${city.procedures[0]} Specialist`,
-                metric: "+182%",
-                label: "Monthly LASIK consults in 6 months",
-                quote: `From 40 to 113 LASIK consults/month after we rebuilt their ${city.name} SEO and launched dedicated landing pages for ${city.landmarks[0]} and ${city.landmarks[1] || city.landmarks[0]}.`,
-                role: `Marketing Head, Multi-specialty Eye Hospital, ${city.name}`,
-              },
-              {
-                tag: "Premium Cataract Practice",
-                metric: "3.2×",
-                label: "Pipeline value within 9 months",
-                quote: `Premium IOL revenue tripled after we deployed WhatsApp speed-to-lead and a doctor-led video series targeting ${city.region} India patients.`,
-                role: `Founder & Senior Surgeon, Boutique Eye Clinic, ${city.name}`,
-              },
-              {
-                tag: `${city.tier} Chain`,
-                metric: "Top 3",
-                label: `Google rankings across 80+ keywords in ${city.name}`,
-                quote: `We went from page 3 to map-pack dominance for "best eye hospital ${city.name}" and 80+ commercial keywords in under 5 months.`,
-                role: `CEO, ${city.tier} Eyecare Network, ${city.state}`,
-              },
-            ].map((c) => (
-              <Card key={c.tag} className="border-border/60 bg-card p-6">
-                <div className="text-xs font-medium uppercase tracking-wider text-success">{c.tag}</div>
-                <div className="mt-3 text-4xl font-bold text-foreground">{c.metric}</div>
-                <div className="mt-1 text-sm text-muted-foreground">{c.label}</div>
-                <div className="mt-5 border-t border-border/60 pt-5">
-                  <Quote className="h-4 w-4 text-success" />
-                  <p className="mt-2 text-sm italic text-muted-foreground">"{c.quote}"</p>
-                  <p className="mt-3 text-xs font-medium">— {c.role}</p>
-                </div>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
