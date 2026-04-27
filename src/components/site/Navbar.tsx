@@ -13,6 +13,7 @@ export function Navbar() {
     { to: "/digital-infrastructure" as const, label: "Digital Infrastructure" },
     { to: "/performance-marketing" as const, label: "Performance Marketing" },
     { to: "/content-authority" as const, label: "Content & Authority" },
+    { to: "/video-content" as const, label: "Video Content Building" },
     { to: "/crm-conversion" as const, label: "CRM & Conversion" },
   ];
 

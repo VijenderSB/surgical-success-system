@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VideoContentRouteImport } from './routes/video-content'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as ExpertiseRouteImport } from './routes/expertise'
 import { Route as DigitalInfrastructureRouteImport } from './routes/digital-infrastructure'
@@ -16,6 +17,11 @@ import { Route as CrmConversionRouteImport } from './routes/crm-conversion'
 import { Route as ContentAuthorityRouteImport } from './routes/content-authority'
 import { Route as IndexRouteImport } from './routes/index'
 
+const VideoContentRoute = VideoContentRouteImport.update({
+  id: '/video-content',
+  path: '/video-content',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PerformanceMarketingRoute = PerformanceMarketingRouteImport.update({
   id: '/performance-marketing',
   path: '/performance-marketing',
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/digital-infrastructure': typeof DigitalInfrastructureRoute
   '/expertise': typeof ExpertiseRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/video-content': typeof VideoContentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/digital-infrastructure': typeof DigitalInfrastructureRoute
   '/expertise': typeof ExpertiseRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/video-content': typeof VideoContentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/digital-infrastructure': typeof DigitalInfrastructureRoute
   '/expertise': typeof ExpertiseRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/video-content': typeof VideoContentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/digital-infrastructure'
     | '/expertise'
     | '/performance-marketing'
+    | '/video-content'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/digital-infrastructure'
     | '/expertise'
     | '/performance-marketing'
+    | '/video-content'
   id:
     | '__root__'
     | '/'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/digital-infrastructure'
     | '/expertise'
     | '/performance-marketing'
+    | '/video-content'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -106,10 +118,18 @@ export interface RootRouteChildren {
   DigitalInfrastructureRoute: typeof DigitalInfrastructureRoute
   ExpertiseRoute: typeof ExpertiseRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
+  VideoContentRoute: typeof VideoContentRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/video-content': {
+      id: '/video-content'
+      path: '/video-content'
+      fullPath: '/video-content'
+      preLoaderRoute: typeof VideoContentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/performance-marketing': {
       id: '/performance-marketing'
       path: '/performance-marketing'
@@ -162,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   DigitalInfrastructureRoute: DigitalInfrastructureRoute,
   ExpertiseRoute: ExpertiseRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
+  VideoContentRoute: VideoContentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
