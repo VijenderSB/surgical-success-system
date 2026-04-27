@@ -28,6 +28,7 @@ import { Card } from "@/components/ui/card";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { useLeadForm } from "@/components/site/LeadFormDialog";
+import { WhatsAppCTA } from "@/components/site/WhatsAppCTA";
 import {
   KpiStripSnapshot,
   FunnelSnapshot,
