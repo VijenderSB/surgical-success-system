@@ -270,7 +270,7 @@ function Hero() {
                 "Designed for Eyecare",
               ].map((t) => (
                 <li key={t} className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-primary" />
+                  <CheckCircle2 className="h-4 w-4 text-success" />
                   {t}
                 </li>
               ))}
@@ -593,7 +593,7 @@ function Process() {
               <div key={s.title} className="relative">
                 <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/20 bg-card text-primary shadow-elevated">
                   <s.icon className="h-6 w-6" />
-                  <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+                  <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-success text-xs font-bold text-white ring-2 ring-background">
                     {i + 1}
                   </span>
                 </div>
@@ -631,8 +631,8 @@ function Outcomes() {
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {outcomes.map((o) => (
-            <Card key={o.label} className="border-border/70 p-6 text-center shadow-soft transition-all hover:-translate-y-1 hover:shadow-elevated">
-              <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+            <Card key={o.label} className="border-border/70 p-6 text-center shadow-soft transition-all hover:-translate-y-1 hover:border-success/40 hover:shadow-elevated">
+              <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-success/10 text-success ring-1 ring-success/20">
                 <o.icon className="h-5 w-5" />
               </div>
               <p className="mt-4 text-3xl font-bold tracking-tight text-gradient-primary">
@@ -765,7 +765,7 @@ function DoctorHook() {
             { icon: Clock, title: "Better time utilization", desc: "Doctors do what only they can do." },
           ].map((c) => (
             <Card key={c.title} className="border-border/70 p-6 text-left shadow-soft">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-success/10 text-success ring-1 ring-success/20">
                 <c.icon className="h-5 w-5" />
               </div>
               <h3 className="mt-4 font-semibold">{c.title}</h3>
