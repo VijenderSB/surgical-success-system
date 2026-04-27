@@ -533,3 +533,202 @@ export function MiniDoctorPnl() {
     </div>
   );
 }
+
+/* =========================================================
+ *      NEW MINI VISUALS (replacement set)
+ * ========================================================= */
+
+export function MiniFollowUpScreen() {
+  const items = [
+    { n: "Mrs. Kapoor", due: "Today 3:00 PM", tone: "bg-destructive/15 text-destructive" },
+    { n: "Arjun R.", due: "Tomorrow 11 AM", tone: "bg-primary/10 text-primary" },
+    { n: "Sana M.", due: "Fri 4:30 PM", tone: "bg-muted text-muted-foreground" },
+  ];
+  return (
+    <div className={`${MINI_H} rounded-md border border-border/70 bg-surface-tint/50 p-2`}>
+      <div className="flex items-center justify-between text-[9px]">
+        <span className="font-semibold text-muted-foreground">Follow-Ups · 18 due</span>
+        <span className="font-semibold text-success">on-time 92%</span>
+      </div>
+      <div className="mt-1 space-y-1">
+        {items.map((i) => (
+          <div key={i.n} className="flex items-center justify-between rounded bg-background px-1.5 py-1 text-[9px]">
+            <span className="font-semibold">{i.n}</span>
+            <span className={`rounded-full px-1.5 py-0.5 font-semibold ${i.tone}`}>{i.due}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function MiniAgentPerformance() {
+  const agents = [
+    { n: "Anjali", c: 142, r: 38 },
+    { n: "Ravi", c: 128, r: 31 },
+    { n: "Neha", c: 96, r: 22 },
+    { n: "Imran", c: 81, r: 18 },
+  ];
+  const max = Math.max(...agents.map((a) => a.c));
+  return (
+    <div className={`${MINI_H} rounded-md border border-border/70 bg-surface-tint/50 p-2`}>
+      <p className="text-[9px] font-semibold text-muted-foreground">Agent-wise Performance</p>
+      <div className="mt-1 space-y-1">
+        {agents.map((a) => (
+          <div key={a.n} className="flex items-center gap-1.5 text-[9px]">
+            <span className="w-10 truncate">{a.n}</span>
+            <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-muted">
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-primary to-primary-glow"
+                style={{ width: `${(a.c / max) * 100}%` }}
+              />
+            </div>
+            <span className="w-10 text-right font-bold text-primary">{a.r} conv</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function MiniWhatsappCrm() {
+  const msgs = [
+    { n: "Mrs. Kapoor", m: "Pricing for both eyes?", t: "now", u: true },
+    { n: "Arjun R.", m: "Booked LASIK ✅", t: "3m", u: false },
+    { n: "Sana M.", m: "Sent EMI brochure", t: "12m", u: false },
+  ];
+  return (
+    <div className={`${MINI_H} rounded-md border border-border/70 bg-surface-tint/50 p-2`}>
+      <div className="flex items-center justify-between text-[9px]">
+        <span className="font-semibold text-success">● WhatsApp CRM</span>
+        <span className="rounded-full bg-destructive/10 px-1 font-bold text-destructive">12 new</span>
+      </div>
+      <div className="mt-1 space-y-1">
+        {msgs.map((m) => (
+          <div key={m.n} className="flex items-start justify-between gap-1 rounded bg-background px-1.5 py-1">
+            <div className="min-w-0">
+              <p className="text-[9px] font-semibold">{m.n}</p>
+              <p className="truncate text-[9px] text-muted-foreground">{m.m}</p>
+            </div>
+            <span className="text-[8px] text-muted-foreground">{m.t}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function MiniConversionRatio() {
+  const data = [
+    { name: "Success", v: 311 },
+    { name: "Work Up", v: 431 },
+  ];
+  const colors = ["var(--color-success)", "var(--color-primary-glow)"];
+  const total = data.reduce((a, b) => a + b.v, 0);
+  return (
+    <div className={`${MINI_H} rounded-md border border-border/70 bg-surface-tint/50 p-2`}>
+      <p className="text-[9px] font-semibold text-muted-foreground">Success vs Work-Up</p>
+      <div className="mt-1 flex items-center gap-2">
+        <div className="h-12 w-12">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie data={data} dataKey="v" innerRadius={12} outerRadius={22} stroke="none">
+                {data.map((_, i) => (
+                  <Cell key={i} fill={colors[i]} />
+                ))}
+              </Pie>
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+        <div className="flex-1 space-y-0.5 text-[9px]">
+          <div className="flex justify-between">
+            <span className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-sm bg-success" />Success</span>
+            <span className="font-bold">{Math.round((311 / total) * 100)}%</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-sm bg-primary-glow" />Work Up</span>
+            <span className="font-bold">{Math.round((431 / total) * 100)}%</span>
+          </div>
+          <div className="flex justify-between border-t border-border pt-0.5">
+            <span className="text-muted-foreground">Total</span>
+            <span className="font-bold">{total}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function MiniTempDashboard() {
+  const buckets = [
+    { t: "Hot", v: 184, tone: "bg-destructive", text: "text-destructive" },
+    { t: "Warm", v: 412, tone: "bg-primary", text: "text-primary" },
+    { t: "Cold", v: 1244, tone: "bg-muted-foreground/40", text: "text-muted-foreground" },
+  ];
+  const max = Math.max(...buckets.map((b) => b.v));
+  return (
+    <div className={`${MINI_H} rounded-md border border-border/70 bg-surface-tint/50 p-2`}>
+      <p className="text-[9px] font-semibold text-muted-foreground">Lead Temperature</p>
+      <div className="mt-1.5 space-y-1">
+        {buckets.map((b) => (
+          <div key={b.t} className="flex items-center gap-1.5 text-[9px]">
+            <span className={`w-10 font-bold ${b.text}`}>{b.t}</span>
+            <div className="h-2 flex-1 overflow-hidden rounded-full bg-muted">
+              <div className={`h-full rounded-full ${b.tone}`} style={{ width: `${(b.v / max) * 100}%` }} />
+            </div>
+            <span className="w-9 text-right font-semibold">{b.v}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function MiniTreatmentLeads() {
+  const tx = [
+    { t: "Cataract", v: 612 },
+    { t: "LASIK", v: 438 },
+    { t: "Retina", v: 261 },
+    { t: "Glaucoma", v: 142 },
+  ];
+  return (
+    <div className={`${MINI_H} rounded-md border border-border/70 bg-surface-tint/50 p-2`}>
+      <p className="text-[9px] font-semibold text-muted-foreground">Leads by Treatment</p>
+      <div className="mt-1 h-12">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={tx} layout="vertical" margin={{ left: 0, right: 4, top: 0, bottom: 0 }}>
+            <XAxis type="number" hide />
+            <YAxis type="category" dataKey="t" width={50} tick={{ fontSize: 9, fill: "var(--color-muted-foreground)" }} axisLine={false} tickLine={false} />
+            <Bar dataKey="v" fill="var(--color-primary)" radius={[0, 3, 3, 0]} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
+  );
+}
+
+export function MiniStagePipeline() {
+  const stages = [
+    { s: "Consultation Done", v: 742, pct: 100 },
+    { s: "In Follow-Up", v: 512, pct: 69 },
+    { s: "Case Closed", v: 311, pct: 42 },
+  ];
+  return (
+    <div className={`${MINI_H} rounded-md border border-border/70 bg-surface-tint/50 p-2`}>
+      <p className="text-[9px] font-semibold text-muted-foreground">Stage Pipeline</p>
+      <div className="mt-1 space-y-1">
+        {stages.map((s) => (
+          <div key={s.s}>
+            <div className="flex justify-between text-[9px]">
+              <span className="font-medium">{s.s}</span>
+              <span className="font-bold text-primary">{s.v}</span>
+            </div>
+            <div className="mt-0.5 h-1 overflow-hidden rounded-full bg-muted">
+              <div className="h-full rounded-full bg-gradient-to-r from-primary to-primary-glow" style={{ width: `${s.pct}%` }} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
