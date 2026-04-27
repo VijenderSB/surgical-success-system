@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Database, Users, MessageSquare, Calendar, LineChart, PhoneCall, Eye, ShieldCheck, Clock,
+  Bot, Workflow, Mic, BellRing, Target, Sparkles, BarChart3, Inbox, Repeat,
 } from "lucide-react";
 import { ServicePage } from "@/components/site/ServicePage";
 
