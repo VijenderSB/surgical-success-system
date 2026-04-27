@@ -26,6 +26,12 @@ import {
   Megaphone,
   PenSquare,
   Award,
+  Video,
+  Youtube,
+  Instagram,
+  Facebook,
+  Film,
+  Play,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -131,6 +137,7 @@ function Home() {
         <Problem />
         <Solution />
         <Ecosystem />
+        <VideoContent />
         <Differentiator />
         <Process />
         <Outcomes />
