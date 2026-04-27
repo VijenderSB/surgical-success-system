@@ -864,6 +864,7 @@ function FAQ() {
 
 /* ---------- 12. FINAL CTA ---------- */
 function FinalCTA() {
+  const { open } = useLeadForm();
   return (
     <section id="contact" className="px-6 py-20 md:py-28">
       <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-deep px-8 py-16 text-surface-deep-foreground shadow-glow md:px-16 md:py-24">
@@ -883,7 +884,7 @@ function FinalCTA() {
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button size="lg" className="h-12 bg-white px-7 text-base font-semibold text-primary-deep shadow-elevated hover:bg-white/90">
+            <Button size="lg" className="h-12 bg-white px-7 text-base font-semibold text-primary-deep shadow-elevated hover:bg-white/90" onClick={() => open("Home final CTA")}>
               Schedule a Growth Consultation
               <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
