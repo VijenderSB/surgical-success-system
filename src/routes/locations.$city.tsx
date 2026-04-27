@@ -11,6 +11,14 @@ import {
   Search,
   ShieldCheck,
   Sparkles,
+  Award,
+  Brain,
+  Target,
+  Users,
+  LineChart,
+  MessageSquare,
+  Video,
+  Globe,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -150,6 +158,15 @@ function CityPage() {
     { icon: ShieldCheck, title: "WhatsApp + CRM Speed-to-Lead", desc: "Sub-60-second lead response — the single biggest conversion lever for premium eyecare." },
   ];
 
+  const ecosystem = [
+    { icon: Search, title: "Discovery & Search", desc: `Patients in ${city.name} start on Google. We own the SERP for procedure + locality keywords.` },
+    { icon: Video, title: "Authority & Trust", desc: "Doctor-led video, reels & educational content that compress the consideration window." },
+    { icon: Target, title: "Performance Media", desc: "Google, Meta & YouTube campaigns engineered around procedure unit economics — not vanity CPLs." },
+    { icon: MessageSquare, title: "Speed-to-Lead CRM", desc: "WhatsApp-first response in <60 seconds. The single biggest lever in premium eyecare conversion." },
+    { icon: Users, title: "Counsellor Enablement", desc: "Scripts, objection libraries & call coaching that turn enquiries into surgery bookings." },
+    { icon: LineChart, title: "Revenue Attribution", desc: "Procedure-level dashboards tying every rupee of spend to LASIK, SMILE Pro, FLACS & IOL revenue." },
+  ];
+
   const faqs = [
     {
       q: `How do you market an eye hospital in ${city.name}?`,
@@ -170,6 +187,18 @@ function CityPage() {
     {
       q: `Do you work exclusively with one clinic per city?`,
       a: `Yes. We work with only one eyecare brand per ${city.name} catchment to avoid conflict of interest. First-mover advantage matters — once we partner, your competitors cannot work with us.`,
+    },
+    {
+      q: `What makes your eyecare marketing different from a general digital agency?`,
+      a: `20 years exclusively in eyecare. We understand patient psychology around vision loss, the economics of LASIK vs. ICL vs. SMILE Pro, counsellor conversion choreography, and what drives a ${city.name} patient to choose your hospital over a chain. Generalist agencies optimise clicks; we optimise surgery bookings.`,
+    },
+    {
+      q: `Can you work with both standalone surgeons and multi-specialty eye hospitals in ${city.name}?`,
+      a: `Yes. Our playbook scales from a single refractive surgeon's practice to multi-location eye hospital chains. The funnel architecture changes — solo practices lean on personal brand and reels; hospitals lean on procedure-line authority and counsellor systems — but the growth engine is the same.`,
+    },
+    {
+      q: `Do you handle regional language content for ${city.state}?`,
+      a: `Absolutely. Reels, ad creative, landing pages and WhatsApp scripts are produced in the regional languages your ${city.name} patients actually search and chat in. This single change typically lifts conversion 30-50%.`,
     },
   ];
 
@@ -236,6 +265,69 @@ function CityPage() {
         </div>
       </section>
 
+      {/* 20 Years Domain Expertise */}
+      <section className="border-t border-border/60 py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/5 px-3 py-1 text-xs font-medium text-success">
+                <Award className="h-3.5 w-3.5" />
+                20 Years in Eyecare Marketing
+              </div>
+              <h2 className="mt-5 text-3xl font-bold tracking-tight md:text-4xl">
+                Deep Domain Expertise That Drives{" "}
+                <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+                  50% Growth in Turnover
+                </span>
+              </h2>
+              <p className="mt-5 text-lg text-muted-foreground">
+                We understand the whole eyecare dynamic — patient psychology, procedure economics, and conversion choreography — built over two decades of working exclusively with eye hospitals, refractive surgeons, and ophthalmology chains across India.
+              </p>
+              <p className="mt-4 text-muted-foreground">
+                In {city.name}, that translates to campaigns that don't just generate leads — they generate the right patient for the right procedure at the right margin.
+              </p>
+
+              <div className="mt-8 grid grid-cols-3 gap-4">
+                <div>
+                  <div className="text-3xl font-bold text-success">20+</div>
+                  <div className="mt-1 text-xs text-muted-foreground">Years in eyecare</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-success">150+</div>
+                  <div className="mt-1 text-xs text-muted-foreground">Eye hospitals scaled</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-success">50%</div>
+                  <div className="mt-1 text-xs text-muted-foreground">Avg. turnover growth</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-4">
+              {[
+                { icon: Brain, title: "Patient Psychology", desc: "Why a 42-year-old in {city} delays cataract surgery — and the exact message that breaks that hesitation." },
+                { icon: LineChart, title: "Procedure Economics", desc: "LASIK vs. ICL vs. SMILE Pro vs. Contoura — we know which to push, when, and at what CPL." },
+                { icon: Users, title: "Conversion Choreography", desc: "From first ad impression to surgery booking — every micro-step engineered for the eyecare buyer journey." },
+              ].map((b) => (
+                <Card key={b.title} className="border-border/60 bg-card p-5">
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-success/10 text-success">
+                      <b.icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">{b.title}</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        {b.desc.replace("{city}", city.name)}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services in this city */}
       <section className="border-t border-border/60 bg-surface-tint/40 py-20">
         <div className="mx-auto max-w-7xl px-6">
@@ -258,6 +350,45 @@ function CityPage() {
                 <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Eyecare Growth Ecosystem */}
+      <section className="border-t border-border/60 py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/5 px-3 py-1 text-xs font-medium text-success">
+              <Globe className="h-3.5 w-3.5" />
+              The System
+            </div>
+            <h2 className="mt-5 text-3xl font-bold tracking-tight md:text-4xl">
+              The Eyecare Growth Ecosystem
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Six interlocking layers that turn a {city.name} eye hospital into a predictable, compounding revenue engine. Remove any one — the system breaks. Run all six — turnover grows 50%+ in 12 months.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {ecosystem.map((e, i) => (
+              <Card key={e.title} className="group relative overflow-hidden border-border/60 bg-card p-6 transition hover:border-success/40 hover:shadow-soft">
+                <div className="absolute right-4 top-4 text-xs font-mono text-muted-foreground/40">
+                  0{i + 1}
+                </div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-success/10 text-success">
+                  <e.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 text-lg font-semibold">{e.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{e.desc}</p>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-xl border border-success/20 bg-success/5 p-6 text-center">
+            <p className="text-sm text-muted-foreground">
+              <span className="font-semibold text-foreground">In {city.name}, the ecosystem is calibrated to local behaviour</span> — search intent in {city.region} India, regional language preferences, {city.tier} willingness-to-pay, and the competitive set in {city.landmarks[0]} & surrounding areas.
+            </p>
           </div>
         </div>
       </section>
