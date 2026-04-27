@@ -65,6 +65,7 @@ export function ServicePage(props: ServicePageProps) {
                   <Button asChild size="lg" variant="outline" className="h-12 px-6 text-base">
                     <Link to="/expertise">See Our Eyecare Expertise</Link>
                   </Button>
+                  <WhatsAppCTA context={`Service hero · ${props.title}`} />
                 </div>
               </div>
 
@@ -257,6 +258,10 @@ export function ServicePage(props: ServicePageProps) {
               <Button asChild size="lg" variant="outline" className="h-12 border-white/30 bg-white/5 px-6 text-base text-white hover:bg-white/10 hover:text-white">
                 <Link to="/">Back to Home</Link>
               </Button>
+              <WhatsAppCTA
+                context={`Service CTA · ${props.title}`}
+                className="h-12 border-white/30 bg-white/10 px-6 text-white hover:bg-white/20 hover:text-white"
+              />
             </div>
           </div>
         </section>

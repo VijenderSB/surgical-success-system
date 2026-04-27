@@ -191,6 +191,7 @@ function CrmConversionPage() {
                   <Button asChild size="lg" variant="outline" className="h-12 px-6 text-base">
                     <Link to="/expertise">See Our Eyecare Expertise</Link>
                   </Button>
+                  <WhatsAppCTA context="CRM hero" />
                 </div>
               </div>
 

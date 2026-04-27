@@ -87,9 +87,12 @@ export function Footer() {
               Get a free growth audit tailored to your specialty and city.
             </p>
           </div>
-          <Button size="lg" className="shrink-0 shadow-soft" onClick={() => open("Footer audit strip")}>
-            Request Audit <ArrowRight className="ml-1.5 h-4 w-4" />
-          </Button>
+          <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
+            <Button size="lg" className="shadow-soft" onClick={() => open("Footer audit strip")}>
+              Request Audit <ArrowRight className="ml-1.5 h-4 w-4" />
+            </Button>
+            <WhatsAppCTA context="Footer audit strip" />
+          </div>
         </div>
       </div>
 
