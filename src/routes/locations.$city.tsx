@@ -369,6 +369,61 @@ function CityPage() {
         </div>
       </section>
 
+      {/* Case Studies */}
+      <section className="border-t border-border/60 bg-surface-tint/40 py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/5 px-3 py-1 text-xs font-medium text-success">
+              <Sparkles className="h-3.5 w-3.5" />
+              {city.name} Success Stories
+            </div>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
+              Eye hospitals we've scaled in {city.name} & {city.state}
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Real outcomes from {city.tier} eyecare practices we partnered with. Names anonymized — full case decks shared on request.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                tag: `${city.procedures[0]} Specialist`,
+                metric: "+182%",
+                label: "Monthly LASIK consults in 6 months",
+                quote: `From 40 to 113 LASIK consults/month after we rebuilt their ${city.name} SEO and launched dedicated landing pages for ${city.landmarks[0]} and ${city.landmarks[1] || city.landmarks[0]}.`,
+                role: `Marketing Head, Multi-specialty Eye Hospital, ${city.name}`,
+              },
+              {
+                tag: "Premium Cataract Practice",
+                metric: "3.2×",
+                label: "Pipeline value within 9 months",
+                quote: `Premium IOL revenue tripled after we deployed WhatsApp speed-to-lead and a doctor-led video series targeting ${city.region} India patients.`,
+                role: `Founder & Senior Surgeon, Boutique Eye Clinic, ${city.name}`,
+              },
+              {
+                tag: `${city.tier} Chain`,
+                metric: "Top 3",
+                label: `Google rankings across 80+ keywords in ${city.name}`,
+                quote: `We went from page 3 to map-pack dominance for "best eye hospital ${city.name}" and 80+ commercial keywords in under 5 months.`,
+                role: `CEO, ${city.tier} Eyecare Network, ${city.state}`,
+              },
+            ].map((c) => (
+              <Card key={c.tag} className="border-border/60 bg-card p-6">
+                <div className="text-xs font-medium uppercase tracking-wider text-success">{c.tag}</div>
+                <div className="mt-3 text-4xl font-bold text-foreground">{c.metric}</div>
+                <div className="mt-1 text-sm text-muted-foreground">{c.label}</div>
+                <div className="mt-5 border-t border-border/60 pt-5">
+                  <Quote className="h-4 w-4 text-success" />
+                  <p className="mt-2 text-sm italic text-muted-foreground">"{c.quote}"</p>
+                  <p className="mt-3 text-xs font-medium">— {c.role}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="border-t border-border/60 bg-surface-tint/40 py-20">
         <div className="mx-auto max-w-4xl px-6">
