@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -48,6 +49,7 @@ export const Route = createRootRoute({
         href: appCss,
       },
     ],
+    scripts: [organizationJsonLd(), websiteJsonLd()],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -56,7 +58,7 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
         <HeadContent />
       </head>
