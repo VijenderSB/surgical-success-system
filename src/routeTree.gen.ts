@@ -9,8 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
+import { Route as ExpertiseRouteImport } from './routes/expertise'
+import { Route as DigitalInfrastructureRouteImport } from './routes/digital-infrastructure'
+import { Route as CrmConversionRouteImport } from './routes/crm-conversion'
+import { Route as ContentAuthorityRouteImport } from './routes/content-authority'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PerformanceMarketingRoute = PerformanceMarketingRouteImport.update({
+  id: '/performance-marketing',
+  path: '/performance-marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExpertiseRoute = ExpertiseRouteImport.update({
+  id: '/expertise',
+  path: '/expertise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalInfrastructureRoute = DigitalInfrastructureRouteImport.update({
+  id: '/digital-infrastructure',
+  path: '/digital-infrastructure',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CrmConversionRoute = CrmConversionRouteImport.update({
+  id: '/crm-conversion',
+  path: '/crm-conversion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContentAuthorityRoute = ContentAuthorityRouteImport.update({
+  id: '/content-authority',
+  path: '/content-authority',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +49,102 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/content-authority': typeof ContentAuthorityRoute
+  '/crm-conversion': typeof CrmConversionRoute
+  '/digital-infrastructure': typeof DigitalInfrastructureRoute
+  '/expertise': typeof ExpertiseRoute
+  '/performance-marketing': typeof PerformanceMarketingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/content-authority': typeof ContentAuthorityRoute
+  '/crm-conversion': typeof CrmConversionRoute
+  '/digital-infrastructure': typeof DigitalInfrastructureRoute
+  '/expertise': typeof ExpertiseRoute
+  '/performance-marketing': typeof PerformanceMarketingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/content-authority': typeof ContentAuthorityRoute
+  '/crm-conversion': typeof CrmConversionRoute
+  '/digital-infrastructure': typeof DigitalInfrastructureRoute
+  '/expertise': typeof ExpertiseRoute
+  '/performance-marketing': typeof PerformanceMarketingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/content-authority'
+    | '/crm-conversion'
+    | '/digital-infrastructure'
+    | '/expertise'
+    | '/performance-marketing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/content-authority'
+    | '/crm-conversion'
+    | '/digital-infrastructure'
+    | '/expertise'
+    | '/performance-marketing'
+  id:
+    | '__root__'
+    | '/'
+    | '/content-authority'
+    | '/crm-conversion'
+    | '/digital-infrastructure'
+    | '/expertise'
+    | '/performance-marketing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContentAuthorityRoute: typeof ContentAuthorityRoute
+  CrmConversionRoute: typeof CrmConversionRoute
+  DigitalInfrastructureRoute: typeof DigitalInfrastructureRoute
+  ExpertiseRoute: typeof ExpertiseRoute
+  PerformanceMarketingRoute: typeof PerformanceMarketingRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/performance-marketing': {
+      id: '/performance-marketing'
+      path: '/performance-marketing'
+      fullPath: '/performance-marketing'
+      preLoaderRoute: typeof PerformanceMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/expertise': {
+      id: '/expertise'
+      path: '/expertise'
+      fullPath: '/expertise'
+      preLoaderRoute: typeof ExpertiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digital-infrastructure': {
+      id: '/digital-infrastructure'
+      path: '/digital-infrastructure'
+      fullPath: '/digital-infrastructure'
+      preLoaderRoute: typeof DigitalInfrastructureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crm-conversion': {
+      id: '/crm-conversion'
+      path: '/crm-conversion'
+      fullPath: '/crm-conversion'
+      preLoaderRoute: typeof CrmConversionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/content-authority': {
+      id: '/content-authority'
+      path: '/content-authority'
+      fullPath: '/content-authority'
+      preLoaderRoute: typeof ContentAuthorityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +157,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContentAuthorityRoute: ContentAuthorityRoute,
+  CrmConversionRoute: CrmConversionRoute,
+  DigitalInfrastructureRoute: DigitalInfrastructureRoute,
+  ExpertiseRoute: ExpertiseRoute,
+  PerformanceMarketingRoute: PerformanceMarketingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

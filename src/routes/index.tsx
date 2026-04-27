@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   Calendar,
@@ -64,6 +64,7 @@ function Home() {
       <Navbar />
       <main>
         <Hero />
+        <ExpertiseBanner />
         <Problem />
         <Solution />
         <Ecosystem />
@@ -179,7 +180,37 @@ function Hero() {
   );
 }
 
-/* ---------- 2. PROBLEM ---------- */
+/* ---------- 1.5 EXPERTISE BANNER ---------- */
+function ExpertiseBanner() {
+  return (
+    <section className="border-y border-border/60 bg-card py-10">
+      <div className="mx-auto grid max-w-7xl gap-6 px-6 md:grid-cols-[auto_1fr_auto] md:items-center">
+        <div className="flex items-center gap-4">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary-glow text-primary-foreground shadow-soft">
+            <span className="text-lg font-bold">20+</span>
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary">Years in Eyecare</p>
+            <p className="text-sm text-muted-foreground">Deep domain expertise — not generic medical marketing.</p>
+          </div>
+        </div>
+        <div className="hidden md:block">
+          <p className="text-base font-semibold text-foreground">
+            We understand the whole eyecare dynamic that drives <span className="text-gradient-primary">50% growth in turnover</span>.
+          </p>
+        </div>
+        <Button asChild variant="outline" size="lg" className="h-11">
+          <Link to="/expertise">
+            See Our Expertise
+            <ArrowRight className="ml-1 h-4 w-4" />
+          </Link>
+        </Button>
+      </div>
+    </section>
+  );
+}
+
+
 function Problem() {
   const problems = [
     { icon: Search, title: "Patients decide before visiting", desc: "Online research drives 80% of healthcare decisions today." },
@@ -255,18 +286,21 @@ function Ecosystem() {
       title: "Digital Infrastructure",
       desc: "High-converting websites, technical SEO, and dedicated landing pages built for medical intent.",
       tags: ["Websites", "SEO", "Landing Pages"],
+      to: "/digital-infrastructure" as const,
     },
     {
       icon: Rocket,
       title: "Performance Marketing",
       desc: "Google Ads & Meta campaigns engineered for high-intent eyecare patient acquisition.",
       tags: ["Google Ads", "Meta", "High-Intent Traffic"],
+      to: "/performance-marketing" as const,
     },
     {
       icon: PenSquare,
       title: "Content & Authority",
       desc: "Doctor branding, social reels, and educational content that builds trust before the first call.",
       tags: ["Doctor Branding", "Reels", "Blogs"],
+      to: "/content-authority" as const,
     },
   ];
 
@@ -284,20 +318,30 @@ function Ecosystem() {
 
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
           {blocks.map((b) => (
-            <Card key={b.title} className="border-border/70 p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elevated">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                <b.icon className="h-6 w-6" />
-              </div>
-              <h3 className="mt-5 text-lg font-semibold">{b.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{b.desc}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {b.tags.map((t) => (
-                  <span key={t} className="rounded-full bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </Card>
+            <Link
+              key={b.title}
+              to={b.to}
+              className="group block"
+            >
+              <Card className="h-full border-border/70 p-7 shadow-soft transition-all group-hover:-translate-y-1 group-hover:border-primary/30 group-hover:shadow-elevated">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                  <b.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 text-lg font-semibold">{b.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{b.desc}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {b.tags.map((t) => (
+                    <span key={t} className="rounded-full bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  Explore service
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Card>
+            </Link>
           ))}
         </div>
 
@@ -330,6 +374,14 @@ function Ecosystem() {
                     <span className="text-sm font-medium">{f.label}</span>
                   </div>
                 ))}
+              </div>
+              <div className="mt-6">
+                <Button asChild size="lg" variant="outline" className="h-11 border-white/30 bg-white/5 px-5 text-white hover:bg-white/10 hover:text-white">
+                  <Link to="/crm-conversion">
+                    Explore CRM & Conversion System
+                    <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </Button>
               </div>
             </div>
 
