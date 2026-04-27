@@ -127,6 +127,76 @@ function ExpertiseBanner() {
   );
 }
 
+/* ---------- VIDEO CONTENT BUILDING (declared before Home) ---------- */
+function VideoContent() {
+  const platforms = [
+    { icon: Youtube, name: "YouTube", desc: "Long-form authority — surgery explainers, patient stories, ranked for search.", color: "text-[oklch(0.62_0.22_27)]" },
+    { icon: Instagram, name: "Instagram", desc: "Reels, carousels, and stories that grow followers and drive DMs into the CRM.", color: "text-[oklch(0.65_0.20_350)]" },
+    { icon: Facebook, name: "Facebook", desc: "Targeted video & community pages for older, high-intent patient segments.", color: "text-[oklch(0.55_0.20_255)]" },
+  ];
+  const features = [
+    { icon: Film, label: "Reels & Shorts" },
+    { icon: Video, label: "Long-form Video" },
+    { icon: Play, label: "Patient Stories" },
+    { icon: Megaphone, label: "Influencer PR" },
+  ];
+
+  return (
+    <section className="bg-surface-tint py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary">
+            <Video className="h-3.5 w-3.5" />
+            Video Content Building
+          </div>
+          <h2 className="mt-5 text-3xl font-bold tracking-tight md:text-4xl">
+            Become the <span className="text-gradient-primary">Eyecare Influencer</span> of Your City
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            A complete Video & Reels engine across YouTube, Instagram, and Facebook — turning your specialists into the most recognised eye doctors patients actively search for.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {platforms.map((p) => (
+            <Card key={p.name} className="border-border/70 p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elevated">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+                <p.icon className={`h-6 w-6 ${p.color}`} />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold">{p.name}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-6 rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8">
+          <div className="grid items-center gap-6 md:grid-cols-[1fr_auto]">
+            <div>
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {features.map((f) => (
+                  <div key={f.label} className="flex items-center gap-3 rounded-xl border border-border bg-gradient-soft px-4 py-3">
+                    <f.icon className="h-4 w-4 text-primary" />
+                    <span className="text-sm font-medium">{f.label}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-5 text-sm text-muted-foreground">
+                From scripting to batch shoots to multi-platform publishing — handled end-to-end so doctors only show up to film.
+              </p>
+            </div>
+            <Button asChild size="lg" className="h-12 px-6 text-base shadow-glow">
+              <Link to="/video-content">
+                Explore Video Content
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Home() {
   return (
     <div className="min-h-screen bg-background">
