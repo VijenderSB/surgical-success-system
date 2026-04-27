@@ -255,18 +255,21 @@ function Ecosystem() {
       title: "Digital Infrastructure",
       desc: "High-converting websites, technical SEO, and dedicated landing pages built for medical intent.",
       tags: ["Websites", "SEO", "Landing Pages"],
+      to: "/digital-infrastructure" as const,
     },
     {
       icon: Rocket,
       title: "Performance Marketing",
       desc: "Google Ads & Meta campaigns engineered for high-intent eyecare patient acquisition.",
       tags: ["Google Ads", "Meta", "High-Intent Traffic"],
+      to: "/performance-marketing" as const,
     },
     {
       icon: PenSquare,
       title: "Content & Authority",
       desc: "Doctor branding, social reels, and educational content that builds trust before the first call.",
       tags: ["Doctor Branding", "Reels", "Blogs"],
+      to: "/content-authority" as const,
     },
   ];
 
@@ -284,20 +287,30 @@ function Ecosystem() {
 
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
           {blocks.map((b) => (
-            <Card key={b.title} className="border-border/70 p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elevated">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                <b.icon className="h-6 w-6" />
-              </div>
-              <h3 className="mt-5 text-lg font-semibold">{b.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{b.desc}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {b.tags.map((t) => (
-                  <span key={t} className="rounded-full bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </Card>
+            <Link
+              key={b.title}
+              to={b.to}
+              className="group block"
+            >
+              <Card className="h-full border-border/70 p-7 shadow-soft transition-all group-hover:-translate-y-1 group-hover:border-primary/30 group-hover:shadow-elevated">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                  <b.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 text-lg font-semibold">{b.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{b.desc}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {b.tags.map((t) => (
+                    <span key={t} className="rounded-full bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  Explore service
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Card>
+            </Link>
           ))}
         </div>
 
@@ -330,6 +343,14 @@ function Ecosystem() {
                     <span className="text-sm font-medium">{f.label}</span>
                   </div>
                 ))}
+              </div>
+              <div className="mt-6">
+                <Button asChild size="lg" variant="outline" className="h-11 border-white/30 bg-white/5 px-5 text-white hover:bg-white/10 hover:text-white">
+                  <Link to="/crm-conversion">
+                    Explore CRM & Conversion System
+                    <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </Button>
               </div>
             </div>
 
