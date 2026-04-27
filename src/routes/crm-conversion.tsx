@@ -4,6 +4,7 @@ import {
   Bot, Workflow, Mic, BellRing, Target, Sparkles, BarChart3, Inbox, Repeat,
 } from "lucide-react";
 import { ServicePage } from "@/components/site/ServicePage";
+import { CrmDashboardMock } from "@/components/site/CrmDashboardMock";
 
 export const Route = createFileRoute("/crm-conversion")({
   head: () => ({

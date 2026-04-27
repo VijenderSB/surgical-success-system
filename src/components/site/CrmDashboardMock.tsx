@@ -123,7 +123,7 @@ export function CrmDashboardMock() {
           {/* Browser-style chrome */}
           <div className="flex items-center gap-2 border-b border-border bg-surface-tint/60 px-4 py-3">
             <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-warning/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-primary-glow/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-success/70" />
             <div className="ml-3 hidden flex-1 items-center gap-2 rounded-md border border-border bg-background px-3 py-1.5 text-xs text-muted-foreground sm:flex">
               <Eye className="h-3.5 w-3.5 text-primary" />
