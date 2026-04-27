@@ -25,6 +25,7 @@ import {
   Clock,
   Megaphone,
   PenSquare,
+  Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -38,6 +39,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FlowDiagram } from "@/components/site/FlowDiagram";
 import heroImage from "@/assets/hero-system.jpg";
+import eyeGraphic from "@/assets/eye-graphic.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
