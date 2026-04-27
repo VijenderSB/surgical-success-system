@@ -238,6 +238,48 @@ function CityPage() {
         </div>
       </section>
 
+      {/* Expertise Banner */}
+      <section className="relative overflow-hidden border-y border-border/40 bg-[oklch(0.18_0.08_265)] py-16 md:py-20">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[oklch(0.16_0.09_270)] via-[oklch(0.18_0.08_265)] to-[oklch(0.22_0.1_260)]" />
+        <div className="absolute right-0 top-1/2 -z-10 h-96 w-96 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 md:flex-row md:gap-14">
+          {/* Eye icon visual */}
+          <div className="relative flex-none">
+            <div className="absolute inset-0 animate-pulse rounded-full bg-primary/30 blur-2xl" />
+            <div className="relative flex h-40 w-40 items-center justify-center rounded-full border border-primary/40 bg-[oklch(0.2_0.09_265)] md:h-48 md:w-48">
+              <Eye className="h-20 w-20 text-primary md:h-24 md:w-24" strokeWidth={1.5} />
+            </div>
+          </div>
+
+          <div className="flex-1 text-center md:text-left">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary-foreground/90 backdrop-blur">
+              <Award className="h-3.5 w-3.5" />
+              20 Years in Eyecare Marketing
+            </div>
+            <h2 className="mt-5 text-3xl font-bold tracking-tight text-white md:text-5xl">
+              Deep Domain Expertise That Drives{" "}
+              <span className="bg-gradient-to-r from-primary via-primary-glow to-[oklch(0.75_0.18_25)] bg-clip-text text-transparent">
+                50% Growth
+              </span>
+              <br className="hidden md:block" />
+              <span className="bg-gradient-to-r from-[oklch(0.75_0.18_25)] to-[oklch(0.7_0.2_15)] bg-clip-text text-transparent">
+                in Turnover
+              </span>
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base text-white/70 md:mx-0 md:text-lg">
+              We understand the whole eyecare dynamic — patient psychology, procedure economics, and conversion choreography — built over two decades of partnering with {city.tier} eye hospitals across India.
+            </p>
+            <div className="mt-7 flex justify-center md:justify-start">
+              <Button asChild size="lg" className="shadow-soft">
+                <Link to="/expertise">
+                  See Our Expertise <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services in this city */}
       <section className="border-t border-border/60 bg-surface-tint/40 py-20">
         <div className="mx-auto max-w-7xl px-6">
