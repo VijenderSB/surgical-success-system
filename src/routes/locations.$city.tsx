@@ -11,6 +11,14 @@ import {
   Search,
   ShieldCheck,
   Sparkles,
+  Award,
+  Brain,
+  Target,
+  Users,
+  LineChart,
+  MessageSquare,
+  Video,
+  Globe,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
