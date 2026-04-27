@@ -265,6 +265,69 @@ function CityPage() {
         </div>
       </section>
 
+      {/* 20 Years Domain Expertise */}
+      <section className="border-t border-border/60 py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/5 px-3 py-1 text-xs font-medium text-success">
+                <Award className="h-3.5 w-3.5" />
+                20 Years in Eyecare Marketing
+              </div>
+              <h2 className="mt-5 text-3xl font-bold tracking-tight md:text-4xl">
+                Deep Domain Expertise That Drives{" "}
+                <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+                  50% Growth in Turnover
+                </span>
+              </h2>
+              <p className="mt-5 text-lg text-muted-foreground">
+                We understand the whole eyecare dynamic — patient psychology, procedure economics, and conversion choreography — built over two decades of working exclusively with eye hospitals, refractive surgeons, and ophthalmology chains across India.
+              </p>
+              <p className="mt-4 text-muted-foreground">
+                In {city.name}, that translates to campaigns that don't just generate leads — they generate the right patient for the right procedure at the right margin.
+              </p>
+
+              <div className="mt-8 grid grid-cols-3 gap-4">
+                <div>
+                  <div className="text-3xl font-bold text-success">20+</div>
+                  <div className="mt-1 text-xs text-muted-foreground">Years in eyecare</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-success">150+</div>
+                  <div className="mt-1 text-xs text-muted-foreground">Eye hospitals scaled</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-success">50%</div>
+                  <div className="mt-1 text-xs text-muted-foreground">Avg. turnover growth</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-4">
+              {[
+                { icon: Brain, title: "Patient Psychology", desc: "Why a 42-year-old in {city} delays cataract surgery — and the exact message that breaks that hesitation." },
+                { icon: LineChart, title: "Procedure Economics", desc: "LASIK vs. ICL vs. SMILE Pro vs. Contoura — we know which to push, when, and at what CPL." },
+                { icon: Users, title: "Conversion Choreography", desc: "From first ad impression to surgery booking — every micro-step engineered for the eyecare buyer journey." },
+              ].map((b) => (
+                <Card key={b.title} className="border-border/60 bg-card p-5">
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-success/10 text-success">
+                      <b.icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">{b.title}</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        {b.desc.replace("{city}", city.name)}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services in this city */}
       <section className="border-t border-border/60 bg-surface-tint/40 py-20">
         <div className="mx-auto max-w-7xl px-6">
