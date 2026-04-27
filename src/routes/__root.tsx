@@ -4,6 +4,7 @@ import appCss from "../styles.css?url";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { LeadFormProvider } from "@/components/site/LeadFormDialog";
 import { Toaster } from "@/components/ui/sonner";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 
 function NotFoundComponent() {
   return (
@@ -76,6 +77,7 @@ function RootComponent() {
   return (
     <LeadFormProvider>
       <Outlet />
+      <WhatsAppButton />
       <Toaster />
     </LeadFormProvider>
   );
