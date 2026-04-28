@@ -688,8 +688,6 @@ export function MiniTreatmentLeads() {
   const tx = [
     { t: "Cataract", v: 612 },
     { t: "LASIK", v: 438 },
-    { t: "Retina", v: 261 },
-    { t: "Glaucoma", v: 142 },
   ];
   return (
     <div className={`${MINI_H} rounded-md border border-border/70 bg-surface-tint/50 p-2`}>

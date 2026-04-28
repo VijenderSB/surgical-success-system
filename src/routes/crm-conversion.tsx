@@ -10,9 +10,7 @@ import {
   ShieldCheck,
   Clock,
   Sparkles,
-  BarChart3,
   Inbox,
-  Repeat,
   ArrowRight,
   CheckCircle2,
   CalendarClock,
@@ -35,8 +33,6 @@ import {
   EngagementSnapshot,
   RevenueSnapshot,
   MiniSmartInbox,
-  MiniReactivation,
-  MiniDoctorPnl,
   MiniFollowUpScreen,
   MiniAgentPerformance,
   MiniWhatsappCrm,
@@ -147,11 +143,9 @@ const uniqueFeatures: FeatureItem[] = [
   { icon: MessageSquare, tag: "Omnichannel", title: "WhatsApp CRM Screen", desc: "Native WhatsApp inbox with patient timeline, doctor-branded templates, and assignment routing — every chat tied to the CRM record.", visual: <MiniWhatsappCrm /> },
   { icon: Percent, tag: "Conversion", title: "Success vs Work-Up Ratio", desc: "Live conversion split between surgeries closed and patients still in work-up — instantly see where the pipeline is healthy or stuck.", visual: <MiniConversionRatio /> },
   { icon: Thermometer, tag: "Lead Temp", title: "Temperature Dashboard", desc: "Hot, warm, and cold buckets refreshed in real time so counsellors always work the highest-intent patient first.", visual: <MiniTempDashboard /> },
-  { icon: Stethoscope, tag: "Treatment", title: "Treatment Lead Dashboard", desc: "Lead volumes split by Cataract, LASIK, Retina, Glaucoma, and more — plan capacity and campaigns by procedure demand.", visual: <MiniTreatmentLeads /> },
+  { icon: Stethoscope, tag: "Treatment", title: "Treatment Lead Dashboard", desc: "Lead volumes split by Cataract and LASIK — plan capacity and campaigns by procedure demand.", visual: <MiniTreatmentLeads /> },
   { icon: GitBranch, tag: "Stage", title: "Stage Pipeline", desc: "Track every patient through Consultation Done → Follow-Up → Case Closed with stage-wise drop-off and time-in-stage analytics.", visual: <MiniStagePipeline /> },
   { icon: Inbox, tag: "Unified", title: "Unified Smart Inbox", desc: "Calls, WhatsApp, Instagram DMs, Google forms, walk-ins — one inbox, one patient timeline, zero leakage between channels.", visual: <MiniSmartInbox /> },
-  { icon: Repeat, tag: "Reactivation", title: "Second-Eye & Recall Engine", desc: "Automatically re-engages post-op patients for second-eye procedures, annual checkups, and family screening camps.", visual: <MiniReactivation /> },
-  { icon: BarChart3, tag: "Revenue View", title: "Doctor & Procedure P&L", desc: "Live dashboards show footfall, conversion, and revenue split by doctor, procedure, channel, and city — end-to-end ROI.", visual: <MiniDoctorPnl /> },
 ];
 
 /* ---------------- PAGE ---------------- */
