@@ -1,93 +1,98 @@
 # Deploying to Shared Node.js Hosting (Hostinger / cPanel / Plesk)
 
-This is the **no-VPS** path. The host runs your single `app.js` for you and
-provides SSL + reverse proxy on its own. You don't need PM2, Nginx, or root.
+Two supported flows. Pick **A** if you connected your GitHub repo to Hostinger
+(recommended — auto-deploys on push). Pick **B** if you upload files manually.
 
-## 1. Build the bundle locally
+---
 
-```bash
-bun install
-bun run build:shared
-```
+## Flow A — GitHub auto-deploy (Hostinger Express preset)
 
-This produces a `shared-build/` directory containing:
+Hostinger's "Express" preset on a GitHub repo runs:
 
 ```
-shared-build/
-├── app.js              ← single-file Node server (Express + API)
-├── dist/               ← built React client (served as static)
-├── db/migrations/      ← run once on your external Postgres
-├── package.json        ← only "pg" is installed at runtime
-├── .env.example
-└── README.txt
+npm install     # at the repo root
+npm start       # at the repo root
 ```
 
-## 2. Provision an external Postgres database
+This project is wired so both commands Just Work:
 
-Shared hosts don't let you run Postgres locally. Pick one (free tiers exist):
+- `npm install` triggers a `postinstall` hook that runs
+  `node scripts/build-shared.mjs`, which builds the Vite client and bundles
+  the Express server into `shared-build/app.js`.
+- `npm start` runs `node shared-build/app.js`.
 
-- **Neon** — https://neon.tech (recommended, serverless Postgres)
-- **Supabase** — https://supabase.com
-- **Railway** — https://railway.app
+### Hostinger build settings
 
-Copy the connection string. It will look like:
-`postgres://user:pass@host.region.neon.tech/dbname?sslmode=require`
+| Field                      | Value           |
+| -------------------------- | --------------- |
+| Framework preset           | **Express**     |
+| Branch                     | `main`          |
+| Node version               | **22.x** (or 18/20) |
+| Root directory             | `./`            |
+| Build & output settings    | Default         |
+| Application startup file   | (auto — `npm start`) |
 
-Run the migration once (use your provider's SQL editor or local `psql`):
-
-```bash
-psql "$DATABASE_URL" -f shared-build/db/migrations/0001_init.sql
-```
-
-## 3. Upload to the host
-
-1. Zip the **contents** of `shared-build/` (not the folder itself).
-2. In the hosting control panel, create a Node.js application:
-   - **Application root**: the directory you upload to
-   - **Application URL**: your domain
-   - **Application startup file**: `app.js`
-   - **Node.js version**: 18 or newer
-3. Upload and extract the zip into the application root.
-
-## 4. Configure environment variables
-
-In the control panel's "Environment variables" section (or create a `.env`
-file in the application root):
+### Required environment variables (add in Hostinger UI)
 
 ```
 NODE_ENV=production
-DATABASE_URL=postgres://...   # from step 2
-PGSSL=true                    # required for Neon / Supabase / Railway
+DATABASE_URL=postgres://user:pass@host:5432/dbname
+PGSSL=true
 CORS_ORIGINS=https://yourdomain.com,https://www.yourdomain.com
 ```
 
-**Do NOT** set `PORT` — the host injects it.
+⚠️ **Do NOT set `PORT`** — Hostinger injects it.
 
-## 5. Install runtime deps & start
+### Database
 
-From the control panel:
-- Click **Run NPM Install** (installs only `pg` — everything else is bundled).
-- Click **Restart Application**.
+Shared hosts don't run Postgres locally. Provision an external one:
 
-Visit `https://yourdomain.com/healthz` — should return `{"ok":true,...}`.
-The lead form will POST to `/api/leads` and write to your external Postgres.
+- **Neon** — https://neon.tech (recommended)
+- **Supabase** — https://supabase.com
+- **Railway** — https://railway.app
+
+Run the migration once via the provider's SQL editor (paste the contents of
+`db/migrations/0001_init.sql`) or locally:
+
+```bash
+psql "$DATABASE_URL" -f db/migrations/0001_init.sql
+```
+
+### Deploy
+
+Push to `main` → Hostinger pulls, runs `npm install` (which builds), then
+`npm start`. Visit `https://yourdomain.com/healthz` → should return
+`{"ok":true,...}`.
+
+---
+
+## Flow B — Manual upload (no GitHub)
+
+1. Build locally:
+   ```bash
+   bun install      # or: npm install --ignore-scripts
+   bun run build:shared
+   ```
+2. Zip the **contents** of `shared-build/` (not the folder itself).
+3. In the hosting control panel:
+   - Application root: directory you upload to
+   - Application startup file: `app.js`
+   - Node.js version: 18+
+4. Upload + extract.
+5. Add the same env vars as Flow A.
+6. Click **Run NPM Install** (installs only `pg`).
+7. Click **Restart Application**.
+
+---
 
 ## What's different from the VPS deploy?
 
-| | Shared hosting | VPS (DEPLOYMENT.md) |
-|---|---|---|
-| Entry | `app.js` (CJS bundle) | `dist-server/index.js` (ESM) |
-| Process manager | Host-managed | PM2 cluster |
-| Reverse proxy / SSL | Host-managed | Nginx + Certbot |
-| Postgres | External (Neon/Supabase) | Local on the box |
-| Deploy | Upload zip | GitHub Actions over SSH |
+|                   | Shared hosting           | VPS (DEPLOYMENT.md)        |
+| ----------------- | ------------------------ | -------------------------- |
+| Entry             | `shared-build/app.js`    | `dist-server/index.js`     |
+| Process manager   | Host-managed             | PM2 cluster                |
+| Reverse proxy/SSL | Host-managed             | Nginx + Certbot            |
+| Postgres          | External (Neon/Supabase) | Local on the box           |
+| Deploy            | `git push` or zip upload | GitHub Actions over SSH    |
 
 Both deploys share the **same `server/` source** — only the build target differs.
-
-## Updating the site
-
-1. `bun run build:shared` locally
-2. Re-upload the contents of `shared-build/` (overwrite)
-3. Click **Restart Application** in the control panel
-
-You do **not** need to re-run `npm install` unless `pg`'s version changed.
