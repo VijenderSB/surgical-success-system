@@ -14,7 +14,8 @@
     "build:server": "tsc -p server/tsconfig.json",
     "build:node": "vite build && tsc -p server/tsconfig.json",
     "start": "node dist-server/index.js",
-    "db:migrate": "psql \"$DATABASE_URL\" -f db/migrations/0001_init.sql"
+    "db:migrate": "psql \"$DATABASE_URL\" -f db/migrations/0001_init.sql",
+    "build:shared": "node scripts/build-shared.mjs"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
@@ -89,6 +90,7 @@
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.0.4",
+    "esbuild": "^0.28.0",
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.6",
