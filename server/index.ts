@@ -4,6 +4,7 @@ import helmet from "helmet";
 import cors from "cors";
 import compression from "compression";
 import path from "node:path";
+import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 import leadsRouter from "./routes/leads.js";
 
@@ -23,7 +24,9 @@ const __dirnameSafe: string = (() => {
 })();
 
 const PORT = Number(process.env.PORT || 3000);
-const HOST = process.env.HOST || "0.0.0.0";
+// On shared hosts (Passenger / cPanel / Plesk) binding 0.0.0.0 is rejected.
+// Only set HOST when explicitly provided; otherwise let Node bind the default.
+const HOST = process.env.HOST;
 const NODE_ENV = process.env.NODE_ENV || "development";
 
 // Resolve the built client. Try common layouts so the same server file works for:
@@ -39,9 +42,7 @@ function resolvePublicDir(): string {
   ];
   for (const c of candidates) {
     try {
-      // require sync fs check
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      if (require("node:fs").existsSync(path.join(c, "index.html"))) return c;
+      if (fs.existsSync(path.join(c, "index.html"))) return c;
     } catch {
       /* ignore */
     }
@@ -52,8 +53,9 @@ const PUBLIC_DIR = resolvePublicDir();
 
 const app = express();
 
-// Behind Nginx / load balancer
-app.set("trust proxy", 1);
+// Trust proxy: on shared hosts the chain is unknown — use a loopback-only
+// setting which keeps express-rate-limit happy and avoids ERR_ERL_PERMISSIVE_TRUST_PROXY.
+app.set("trust proxy", "loopback");
 app.disable("x-powered-by");
 
 // ---- Security headers -------------------------------------------------------
@@ -129,7 +131,18 @@ app.get(/.*/, (_req, res) => {
   });
 });
 
-app.listen(PORT, HOST, () => {
-  console.log(`[server] listening on http://${HOST}:${PORT} (${NODE_ENV})`);
+const onListen = () => {
+  console.log(`[server] listening on port ${PORT} (${NODE_ENV})`);
   console.log(`[server] serving static from ${PUBLIC_DIR}`);
-});
+};
+
+if (HOST) {
+  app.listen(PORT, HOST, onListen);
+} else {
+  // Default bind — works on shared Node hosts (Passenger picks it up).
+  app.listen(PORT, onListen);
+}
+
+// Surface crashes in the host's stderr log instead of dying silently.
+process.on("uncaughtException", (err) => console.error("[uncaughtException]", err));
+process.on("unhandledRejection", (err) => console.error("[unhandledRejection]", err));
