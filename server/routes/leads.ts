@@ -5,12 +5,15 @@ import { leadSchema } from "../validation.js";
 
 const router = Router();
 
-// Per-IP rate limit: max 5 submissions / 10 min
+// Per-IP rate limit: max 5 submissions / 10 min.
+// validate.trustProxy: false avoids ERR_ERL_PERMISSIVE_TRUST_PROXY on shared hosts
+// where the upstream proxy chain isn't known.
 const leadLimiter = rateLimit({
   windowMs: 10 * 60 * 1000,
   max: 5,
   standardHeaders: "draft-7",
   legacyHeaders: false,
+  validate: { trustProxy: false, xForwardedForHeader: false },
   message: { ok: false, error: "Too many requests. Please try again later." },
 });
 
