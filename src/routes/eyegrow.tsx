@@ -176,16 +176,13 @@ function EyeGrowPage() {
 
             {/* RIGHT: dashboard image */}
             <div className="relative mx-auto w-full max-w-2xl">
-              <div className="absolute -inset-6 rounded-3xl bg-gradient-to-tr from-primary/15 via-primary/5 to-transparent blur-2xl" aria-hidden />
-              <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl ring-1 ring-slate-900/5">
-                <img
-                  src={eyeGrowHero}
-                  alt="eyGrow analytics dashboard showing patient acquisition growth, treatment volume by Cataract, LASIK, Retina, Glaucoma and key KPIs"
-                  width={1920}
-                  height={1080}
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
+              <img
+                src={eyeGrowHero}
+                alt="eyGrow analytics dashboard showing patient acquisition growth, treatment volume by Cataract, LASIK, Retina, Glaucoma and key KPIs"
+                width={1920}
+                height={1080}
+                className="h-auto w-full object-contain"
+              />
             </div>
           </div>
 
