@@ -364,13 +364,13 @@ function CityPage() {
                 Our hyper-local SEO and Google Ads target patients in:
               </p>
               <ul className="mt-5 grid grid-cols-2 gap-3">
-                {city.hospitalsHubs.map((h) => (
+                {city.hospitalsHubs.map((h: string) => (
                   <li key={h} className="flex items-start gap-2 text-sm">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-success" />
                     <span>{h}</span>
                   </li>
                 ))}
-                {city.landmarks.map((l) => (
+                {city.landmarks.map((l: string) => (
                   <li key={l} className="flex items-start gap-2 text-sm">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-success" />
                     <span>{l}</span>
