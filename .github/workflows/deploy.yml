@@ -1,0 +1,67 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install --frozen-lockfile
+
+      - name: Typecheck + lint
+        run: |
+          bunx tsc --noEmit
+          bun run lint
+
+      - name: Build (client + server)
+        run: bun run build:node
+
+      - name: Package release
+        run: |
+          tar -czf release.tgz dist dist-server db package.json package-lock.json* ecosystem.config.cjs
+
+      - name: Copy to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host:     ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key:      ${{ secrets.DEPLOY_SSH_KEY }}
+          source:   release.tgz
+          target:   /var/www/transess/releases/
+
+      - name: Activate release
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host:     ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key:      ${{ secrets.DEPLOY_SSH_KEY }}
+          script: |
+            set -euo pipefail
+            cd /var/www/transess
+            STAMP=$(date +%Y%m%d-%H%M%S)
+            mkdir -p releases/$STAMP
+            tar -xzf releases/release.tgz -C releases/$STAMP
+            rm releases/release.tgz
+            cd releases/$STAMP
+            npm install --omit=dev --no-audit --no-fund
+            cd /var/www/transess
+            ln -sfn releases/$STAMP current
+            # symlink shared .env into release
+            ln -sfn /var/www/transess/shared/.env releases/$STAMP/.env
+            pm2 reload ecosystem.config.cjs --update-env || pm2 start current/ecosystem.config.cjs
+            pm2 save
+            # keep last 5 releases
+            cd releases && ls -1t | tail -n +6 | xargs -r rm -rf

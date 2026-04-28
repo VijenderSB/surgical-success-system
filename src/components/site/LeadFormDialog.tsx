@@ -176,13 +176,22 @@ function LeadFormDialog({
 
     setSubmitting(true);
     try {
-      // No backend endpoint yet — simulate a submit. When backend is added,
-      // POST `parsed.data` (omit `website`/`startedAt`) to the server function.
-      await new Promise((r) => setTimeout(r, 700));
+      const { website: _hp, ...clean } = parsed.data;
+      void _hp;
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...clean, source, startedAt }),
+      });
+      if (!res.ok && res.status !== 200 && res.status !== 201) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body?.error || `Request failed (${res.status})`);
+      }
       setDone(true);
       toast.success("Thanks! Our team will reach out within 24 hours.");
-    } catch {
-      toast.error("Something went wrong. Please try again.");
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Something went wrong.";
+      toast.error(msg);
     } finally {
       setSubmitting(false);
     }
