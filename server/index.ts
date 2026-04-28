@@ -7,8 +7,20 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import leadsRouter from "./routes/leads.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// In ESM (tsc build) we derive __dirname from import.meta.url.
+// In CJS (esbuild shared-hosting bundle) Node already provides __dirname,
+// so we only compute it when it's missing.
+declare const __dirname: string;
+const __dirnameSafe: string = (() => {
+  try {
+    // @ts-expect-error — defined in CJS, undefined in ESM
+    if (typeof __dirname === "string" && __dirname) return __dirname;
+  } catch { /* esm */ }
+  // ESM fallback
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const metaUrl = (import.meta as any)?.url as string | undefined;
+  return metaUrl ? path.dirname(fileURLToPath(metaUrl)) : process.cwd();
+})();
 
 const PORT = Number(process.env.PORT || 3000);
 const HOST = process.env.HOST || "0.0.0.0";
