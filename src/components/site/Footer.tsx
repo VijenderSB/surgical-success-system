@@ -42,6 +42,7 @@ export function Footer() {
   const company: FooterLink[] = [
     { label: "About Us", href: "#" },
     { label: "Our Approach", href: "#" },
+    { label: "Locations", to: "/locations" },
     { label: "Case Studies", href: "/#case-study" },
     { label: "Process", href: "/#process" },
     { label: "FAQ", href: "/#faq" },
@@ -50,15 +51,15 @@ export function Footer() {
   ];
 
   const locations: FooterLink[] = [
-    { label: "Eyecare Marketing Mumbai", href: "/locations/mumbai" },
-    { label: "Eyecare Marketing Delhi NCR", href: "/locations/delhi-ncr" },
-    { label: "Eyecare Marketing Bangalore", href: "/locations/bangalore" },
-    { label: "Eyecare Marketing Hyderabad", href: "/locations/hyderabad" },
-    { label: "Eyecare Marketing Chennai", href: "/locations/chennai" },
-    { label: "Eyecare Marketing Pune", href: "/locations/pune" },
-    { label: "Eyecare Marketing Ahmedabad", href: "/locations/ahmedabad" },
-    { label: "Eyecare Marketing Kolkata", href: "/locations/kolkata" },
-    { label: "All Locations Across India", href: "/locations" },
+    { label: "Eyecare Marketing Mumbai", to: "/locations/mumbai" },
+    { label: "Eyecare Marketing Delhi NCR", to: "/locations/delhi-ncr" },
+    { label: "Eyecare Marketing Bangalore", to: "/locations/bangalore" },
+    { label: "Eyecare Marketing Hyderabad", to: "/locations/hyderabad" },
+    { label: "Eyecare Marketing Chennai", to: "/locations/chennai" },
+    { label: "Eyecare Marketing Pune", to: "/locations/pune" },
+    { label: "Eyecare Marketing Ahmedabad", to: "/locations/ahmedabad" },
+    { label: "Eyecare Marketing Kolkata", to: "/locations/kolkata" },
+    { label: "All Locations Across India", to: "/locations" },
   ];
 
   const resources: FooterLink[] = [
@@ -162,9 +163,15 @@ export function Footer() {
           <ul className="mt-4 grid gap-x-6 gap-y-2 text-sm text-muted-foreground sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {locations.map((l) => (
               <li key={l.label}>
-                <a href={l.href} className="transition-colors hover:text-foreground">
-                  {l.label}
-                </a>
+                {l.to ? (
+                  <Link to={l.to} className="transition-colors hover:text-foreground">
+                    {l.label}
+                  </Link>
+                ) : (
+                  <a href={l.href ?? "#"} className="transition-colors hover:text-foreground">
+                    {l.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
