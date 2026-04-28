@@ -24,6 +24,7 @@ import { Footer } from "@/components/site/Footer";
 import { useLeadForm } from "@/components/site/LeadFormDialog";
 import { WhatsAppCTA } from "@/components/site/WhatsAppCTA";
 import { buildPageMeta, serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import eyeGrowHero from "@/assets/eyegrow-hero.jpg";
 
 export const Route = createFileRoute("/eyegrow")({
   head: () => {
@@ -168,6 +169,19 @@ function EyeGrowPage() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <WhatsAppCTA context="eyGrow Hero" label="Talk on WhatsApp" />
+            </div>
+
+            <div className="relative mt-14">
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-primary/20 via-primary/5 to-transparent blur-2xl" aria-hidden />
+              <div className="relative overflow-hidden rounded-2xl border border-border/60 shadow-elegant">
+                <img
+                  src={eyeGrowHero}
+                  alt="eyGrow ecosystem — interconnected modules for eyecare growth: marketing, content, video, CRM and analytics around a central eye"
+                  width={1920}
+                  height={1080}
+                  className="h-auto w-full object-cover"
+                />
+              </div>
             </div>
 
             <div className="mt-14 grid grid-cols-2 gap-6 md:grid-cols-4">
