@@ -33,9 +33,9 @@ const NODE_ENV = process.env.NODE_ENV || "development";
 function resolvePublicDir(): string {
   if (process.env.PUBLIC_DIR) return process.env.PUBLIC_DIR;
   const candidates = [
-    path.resolve(__dirname, "dist"),       // app.js at root
-    path.resolve(__dirname, "../dist"),    // dist-server/index.js
-    path.resolve(__dirname, "../../dist"), // nested build
+    path.resolve(__dirnameSafe, "dist"),       // app.js at root
+    path.resolve(__dirnameSafe, "../dist"),    // dist-server/index.js
+    path.resolve(__dirnameSafe, "../../dist"), // nested build
   ];
   for (const c of candidates) {
     try {
