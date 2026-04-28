@@ -141,57 +141,62 @@ function EyeGrowPage() {
       <Navbar />
 
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-border/60 bg-gradient-to-b from-background via-background to-muted/30">
-        <div className="absolute inset-0 -z-10 opacity-60 [background:radial-gradient(900px_circle_at_15%_-10%,color-mix(in_oklab,var(--primary)_18%,transparent),transparent_60%),radial-gradient(700px_circle_at_85%_10%,color-mix(in_oklab,var(--primary)_12%,transparent),transparent_60%)]" />
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-          <div className="mx-auto max-w-4xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
-              <Sparkles className="h-3.5 w-3.5" />
-              eyGrow™ — Eyecare Growth System
-            </span>
+      <section className="relative overflow-hidden border-b border-border/60 bg-white">
+        <div className="absolute inset-0 -z-10 opacity-40 [background:radial-gradient(700px_circle_at_10%_0%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent_60%),radial-gradient(600px_circle_at_95%_20%,color-mix(in_oklab,var(--primary)_8%,transparent),transparent_60%)]" />
+        <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            {/* LEFT: copy */}
+            <div className="text-center lg:text-left">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+                <Sparkles className="h-3.5 w-3.5" />
+                eyGrow™ — Eyecare Growth System
+              </span>
 
-            <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight md:text-6xl">
-              The End-to-End{" "}
-              <span className="text-gradient-primary">Growth Operating System</span>{" "}
-              Built Exclusively for Eyecare
-            </h1>
+              <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
+                The End-to-End{" "}
+                <span className="text-gradient-primary">Growth Operating System</span>{" "}
+                Built Exclusively for Eyecare
+              </h1>
 
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Powered by <strong className="text-foreground">eyGrow™</strong> — our proprietary
-              ecosystem that fuses digital infrastructure, performance marketing, content
-              authority, video, and the eyFLOW CRM into one accountable engine for
-              structured patient acquisition and scalable growth.
-            </p>
+              <p className="mt-6 text-base leading-relaxed text-slate-600 md:text-lg">
+                Powered by <strong className="text-slate-900">eyGrow™</strong> — our proprietary
+                ecosystem that fuses digital infrastructure, performance marketing, content
+                authority, video, and the eyFLOW CRM into one accountable engine for
+                structured patient acquisition and scalable growth.
+              </p>
 
-            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button size="lg" className="h-12 px-8 text-base shadow-soft" onClick={() => open("eyGrow Hero · Build")}>
-                Build My Growth System
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <WhatsAppCTA context="eyGrow Hero" label="Talk on WhatsApp" />
+              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
+                <Button size="lg" className="h-12 px-8 text-base shadow-soft" onClick={() => open("eyGrow Hero · Build")}>
+                  Build My Growth System
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                <WhatsAppCTA context="eyGrow Hero" label="Talk on WhatsApp" />
+              </div>
             </div>
 
-            <div className="relative mt-14">
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-primary/20 via-primary/5 to-transparent blur-2xl" aria-hidden />
-              <div className="relative overflow-hidden rounded-2xl border border-border/60 shadow-elegant">
+            {/* RIGHT: dashboard image */}
+            <div className="relative">
+              <div className="absolute -inset-6 rounded-3xl bg-gradient-to-tr from-primary/15 via-primary/5 to-transparent blur-2xl" aria-hidden />
+              <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-elegant">
                 <img
                   src={eyeGrowHero}
-                  alt="eyGrow ecosystem — interconnected modules for eyecare growth: marketing, content, video, CRM and analytics around a central eye"
+                  alt="eyGrow analytics dashboard showing patient acquisition growth, treatment volume by Cataract, LASIK, Retina, Glaucoma and key KPIs"
                   width={1920}
                   height={1080}
                   className="h-auto w-full object-cover"
                 />
               </div>
             </div>
+          </div>
 
-            <div className="mt-14 grid grid-cols-2 gap-6 md:grid-cols-4">
-              {outcomes.map((o) => (
-                <div key={o.label} className="rounded-xl border border-border/60 bg-card/60 p-5 text-center backdrop-blur">
-                  <div className="text-2xl font-bold text-gradient-primary md:text-3xl">{o.value}</div>
-                  <div className="mt-1 text-xs text-muted-foreground md:text-sm">{o.label}</div>
-                </div>
-              ))}
-            </div>
+          {/* OUTCOMES */}
+          <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+            {outcomes.map((o) => (
+              <div key={o.label} className="rounded-xl border border-slate-200 bg-white p-5 text-center shadow-sm">
+                <div className="text-2xl font-bold text-gradient-primary md:text-3xl">{o.value}</div>
+                <div className="mt-1 text-xs text-slate-600 md:text-sm">{o.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
