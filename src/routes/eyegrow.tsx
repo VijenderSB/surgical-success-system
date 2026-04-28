@@ -24,6 +24,7 @@ import { Footer } from "@/components/site/Footer";
 import { useLeadForm } from "@/components/site/LeadFormDialog";
 import { WhatsAppCTA } from "@/components/site/WhatsAppCTA";
 import { buildPageMeta, serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import eyeGrowHero from "@/assets/eyegrow-hero.jpg";
 
 export const Route = createFileRoute("/eyegrow")({
   head: () => {
