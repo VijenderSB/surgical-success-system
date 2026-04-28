@@ -176,8 +176,8 @@ function CrmConversionPage() {
                   CRM &amp; Conversion — Our Core Strength
                 </div>
                 <h1 className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight text-foreground md:text-5xl">
-                  The CRM &amp; Conversion System{" "}
-                  <span className="text-gradient-primary">That Closes Eyecare Patients</span>
+                  A Dedicated Eyecare CRM &amp; Conversion System Built for{" "}
+                  <span className="text-gradient-primary">Structured Patient Acquisition and Scalable Growth</span>
                 </h1>
                 <p className="mt-5 text-lg text-muted-foreground md:text-xl">
                   Most clinics lose 60% of leads in the gap between inquiry and consultation. Our
