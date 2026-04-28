@@ -247,6 +247,82 @@ function Home() {
 }
 
 /* ---------- 1. HERO ---------- */
+/* ---------- EYGROW CTA SECTION ---------- */
+function EyeGrowCTA() {
+  const { open } = useLeadForm();
+  return (
+    <section className="relative overflow-hidden border-y border-border/60 bg-white">
+      <div className="absolute inset-0 -z-10 opacity-40 [background:radial-gradient(700px_circle_at_10%_0%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent_60%),radial-gradient(600px_circle_at_95%_20%,color-mix(in_oklab,var(--primary)_8%,transparent),transparent_60%)]" />
+      <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          {/* LEFT: copy */}
+          <div className="text-center lg:text-left">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+              <Sparkles className="h-3.5 w-3.5" />
+              eyGrow™ — Eyecare Growth System
+            </span>
+
+            <h2 className="mt-6 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-5xl">
+              The End-to-End{" "}
+              <span className="text-gradient-primary">Growth Operating System</span>{" "}
+              Built Exclusively for Eyecare
+            </h2>
+
+            <p className="mt-5 text-base leading-relaxed text-slate-600 md:text-lg">
+              <strong className="text-slate-900">eyGrow™</strong> fuses digital infrastructure,
+              performance marketing, content authority, video, and the eyFLOW CRM into one
+              accountable engine for structured patient acquisition and scalable growth.
+            </p>
+
+            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
+              <Button
+                size="lg"
+                className="h-12 px-6 text-base shadow-glow"
+                onClick={() => open("Home eyGrow CTA · Build")}
+              >
+                Build Your Growth Engine
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Button>
+              <Button asChild size="lg" variant="outline" className="h-12 px-6 text-base">
+                <Link to="/eyegrow">
+                  Explore eyGrow™
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+
+            <ul className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground lg:justify-start">
+              {[
+                "5 Integrated Modules",
+                "Eyecare-Only Playbooks",
+                "Accountable to Revenue",
+              ].map((t) => (
+                <li key={t} className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-success" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* RIGHT: dashboard image */}
+          <div className="relative mx-auto w-full max-w-2xl">
+            <img
+              src={eyeGrowHero}
+              alt="eyGrow analytics dashboard showing patient acquisition growth and KPIs"
+              width={1920}
+              height={1080}
+              loading="lazy"
+              className="h-auto w-full object-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- 1. HERO ---------- */
 function Hero() {
   const { open } = useLeadForm();
   return (
