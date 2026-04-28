@@ -84,6 +84,9 @@ function buildMessage(context: string): string {
     const svc = context.split("·")[1]?.trim();
     return `Hi Transess, I'm ready to get started with "${svc ?? "your service"}" for our eye centre. Please connect.`;
   }
+  if (c.includes("eygrow")) {
+    return "Hi Transess, I'd like to learn more about eyGrow™ — your end-to-end eyecare growth system — and how it can scale our practice. Please share details.";
+  }
   if (c.includes("home hero · build")) {
     return "Hi Transess, we'd like to build a complete digital growth engine for our eye clinic. Please share how to start.";
   }

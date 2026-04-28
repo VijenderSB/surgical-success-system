@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Sparkles } from "lucide-react";
 import logo from "@/assets/transess-logo.png";
 import { Button } from "@/components/ui/button";
 import { useLeadForm } from "@/components/site/LeadFormDialog";
@@ -30,6 +30,10 @@ export function Navbar() {
         <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
           <Link to="/" className="transition-colors hover:text-foreground" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground" }}>
             Home
+          </Link>
+          <Link to="/eyegrow" className="inline-flex items-center gap-1 font-semibold text-primary transition-colors hover:text-primary/80" activeProps={{ className: "text-primary" }}>
+            <Sparkles className="h-3.5 w-3.5" />
+            eyGROW
           </Link>
           <DropdownMenu>
             <DropdownMenuTrigger className="inline-flex items-center gap-1 outline-none transition-colors hover:text-foreground">
