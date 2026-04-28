@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as VideoContentRouteImport } from './routes/video-content'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
+import { Route as EyegrowRouteImport } from './routes/eyegrow'
 import { Route as ExpertiseRouteImport } from './routes/expertise'
 import { Route as DigitalInfrastructureRouteImport } from './routes/digital-infrastructure'
 import { Route as CrmConversionRouteImport } from './routes/crm-conversion'
@@ -33,6 +34,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const PerformanceMarketingRoute = PerformanceMarketingRouteImport.update({
   id: '/performance-marketing',
   path: '/performance-marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EyegrowRoute = EyegrowRouteImport.update({
+  id: '/eyegrow',
+  path: '/eyegrow',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExpertiseRoute = ExpertiseRouteImport.update({
@@ -77,6 +83,7 @@ export interface FileRoutesByFullPath {
   '/crm-conversion': typeof CrmConversionRoute
   '/digital-infrastructure': typeof DigitalInfrastructureRoute
   '/expertise': typeof ExpertiseRoute
+  '/eyegrow': typeof EyegrowRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/video-content': typeof VideoContentRoute
@@ -89,6 +96,7 @@ export interface FileRoutesByTo {
   '/crm-conversion': typeof CrmConversionRoute
   '/digital-infrastructure': typeof DigitalInfrastructureRoute
   '/expertise': typeof ExpertiseRoute
+  '/eyegrow': typeof EyegrowRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/video-content': typeof VideoContentRoute
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   '/crm-conversion': typeof CrmConversionRoute
   '/digital-infrastructure': typeof DigitalInfrastructureRoute
   '/expertise': typeof ExpertiseRoute
+  '/eyegrow': typeof EyegrowRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/video-content': typeof VideoContentRoute
@@ -116,6 +125,7 @@ export interface FileRouteTypes {
     | '/crm-conversion'
     | '/digital-infrastructure'
     | '/expertise'
+    | '/eyegrow'
     | '/performance-marketing'
     | '/sitemap.xml'
     | '/video-content'
@@ -128,6 +138,7 @@ export interface FileRouteTypes {
     | '/crm-conversion'
     | '/digital-infrastructure'
     | '/expertise'
+    | '/eyegrow'
     | '/performance-marketing'
     | '/sitemap.xml'
     | '/video-content'
@@ -140,6 +151,7 @@ export interface FileRouteTypes {
     | '/crm-conversion'
     | '/digital-infrastructure'
     | '/expertise'
+    | '/eyegrow'
     | '/performance-marketing'
     | '/sitemap.xml'
     | '/video-content'
@@ -153,6 +165,7 @@ export interface RootRouteChildren {
   CrmConversionRoute: typeof CrmConversionRoute
   DigitalInfrastructureRoute: typeof DigitalInfrastructureRoute
   ExpertiseRoute: typeof ExpertiseRoute
+  EyegrowRoute: typeof EyegrowRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   VideoContentRoute: typeof VideoContentRoute
@@ -181,6 +194,13 @@ declare module '@tanstack/react-router' {
       path: '/performance-marketing'
       fullPath: '/performance-marketing'
       preLoaderRoute: typeof PerformanceMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eyegrow': {
+      id: '/eyegrow'
+      path: '/eyegrow'
+      fullPath: '/eyegrow'
+      preLoaderRoute: typeof EyegrowRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/expertise': {
@@ -241,6 +261,7 @@ const rootRouteChildren: RootRouteChildren = {
   CrmConversionRoute: CrmConversionRoute,
   DigitalInfrastructureRoute: DigitalInfrastructureRoute,
   ExpertiseRoute: ExpertiseRoute,
+  EyegrowRoute: EyegrowRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   VideoContentRoute: VideoContentRoute,
