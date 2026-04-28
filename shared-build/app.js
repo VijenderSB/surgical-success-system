@@ -32840,19 +32840,25 @@ var leads_default = router;
 
 // server/index.ts
 var import_meta = {};
-var __filename = (0, import_node_url.fileURLToPath)(import_meta.url);
-var __dirname = import_node_path.default.dirname(__filename);
+var __dirnameSafe = (() => {
+  try {
+    if (typeof __dirname === "string" && __dirname) return __dirname;
+  } catch {
+  }
+  const metaUrl = import_meta?.url;
+  return metaUrl ? import_node_path.default.dirname((0, import_node_url.fileURLToPath)(metaUrl)) : process.cwd();
+})();
 var PORT = Number(process.env.PORT || 3e3);
 var HOST = process.env.HOST || "0.0.0.0";
 var NODE_ENV = process.env.NODE_ENV || "development";
 function resolvePublicDir() {
   if (process.env.PUBLIC_DIR) return process.env.PUBLIC_DIR;
   const candidates = [
-    import_node_path.default.resolve(__dirname, "dist"),
+    import_node_path.default.resolve(__dirnameSafe, "dist"),
     // app.js at root
-    import_node_path.default.resolve(__dirname, "../dist"),
+    import_node_path.default.resolve(__dirnameSafe, "../dist"),
     // dist-server/index.js
-    import_node_path.default.resolve(__dirname, "../../dist")
+    import_node_path.default.resolve(__dirnameSafe, "../../dist")
     // nested build
   ];
   for (const c of candidates) {
