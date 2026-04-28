@@ -216,10 +216,16 @@ function EyeGrowPage() {
       <section className="border-y border-border/60 bg-muted/20 py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold md:text-4xl">Why eyGrow™ is different</h2>
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+              Why eyGrow™ is different
+            </span>
+            <h2 className="mt-4 text-3xl font-bold md:text-5xl">
+              Build What Most Eye Centres <span className="text-gradient-primary">Can't</span>
+            </h2>
             <p className="mt-4 text-muted-foreground">
               Not an agency. Not a tool. A complete growth operating system built specifically
-              for eye hospitals and ophthalmology chains.
+              for eye hospitals and ophthalmology chains — engineered to deliver outcomes
+              independent operators and generic agencies simply can't replicate.
             </p>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
