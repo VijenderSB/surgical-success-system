@@ -295,16 +295,16 @@ function CrmConversionPage() {
             <div className="mx-auto max-w-2xl text-center">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary">
                 <Sparkles className="h-3.5 w-3.5" />
-                What Makes Our CRM Different
+                What Makes eyFLOW Different
               </div>
               <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
-                Unique CRM Capabilities{" "}
+                Unique eyFLOW Capabilities{" "}
                 <span className="text-gradient-primary">
                   Built to Lift Eye Centre Footfall &amp; Revenue
                 </span>
               </h2>
               <p className="mt-4 text-muted-foreground">
-                Beyond a generic pipeline, our CRM is engineered around how eyecare patients
+                Beyond a generic pipeline, eyFLOW is engineered around how eyecare patients
                 decide — combining AI agents, omnichannel outreach, and procedure-aware
                 automations that compound footfall and surgery revenue month over month.
               </p>
