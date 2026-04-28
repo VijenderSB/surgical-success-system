@@ -33,7 +33,7 @@ export function Navbar() {
           </Link>
           <Link
             to="/eyegrow"
-            className="group relative inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-primary via-primary to-primary/80 bg-[length:200%_auto] px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-[0_0_18px_hsl(var(--primary)/0.55)] ring-1 ring-primary/40 transition-all duration-300 hover:bg-[position:right_center] hover:shadow-[0_0_28px_hsl(var(--primary)/0.85)] animate-pulse"
+            className="group relative inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-primary via-primary to-primary/80 bg-[length:200%_auto] px-3.5 py-1.5 text-xs font-bold tracking-wide text-primary-foreground shadow-[0_0_18px_hsl(var(--primary)/0.55)] ring-1 ring-primary/40 transition-all duration-300 hover:bg-[position:right_center] hover:shadow-[0_0_28px_hsl(var(--primary)/0.85)] animate-pulse"
           >
             <span className="absolute inset-0 -z-10 rounded-full bg-primary/40 blur-md opacity-70 group-hover:opacity-100 transition-opacity" aria-hidden />
             <Sparkles className="h-3.5 w-3.5 drop-shadow-[0_0_6px_rgba(255,255,255,0.9)]" />
