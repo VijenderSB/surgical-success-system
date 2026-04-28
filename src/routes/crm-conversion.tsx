@@ -33,8 +33,6 @@ import {
   EngagementSnapshot,
   RevenueSnapshot,
   MiniSmartInbox,
-  MiniReactivation,
-  MiniDoctorPnl,
   MiniFollowUpScreen,
   MiniAgentPerformance,
   MiniWhatsappCrm,
