@@ -47,6 +47,7 @@ import { FlowDiagram } from "@/components/site/FlowDiagram";
 import { useLeadForm } from "@/components/site/LeadFormDialog";
 import { WhatsAppCTA } from "@/components/site/WhatsAppCTA";
 import heroImage from "@/assets/hero-system.jpg";
+import eyeGrowHero from "@/assets/eyegrow-hero.jpg";
 import eyeGraphic from "@/assets/eye-graphic.png";
 import { buildPageMeta, faqJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
@@ -226,6 +227,7 @@ function Home() {
       <main>
         <Hero />
         <ExpertiseBanner />
+        <EyeGrowCTA />
         <Problem />
         <Solution />
         <Ecosystem />
