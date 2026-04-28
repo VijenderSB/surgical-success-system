@@ -20,7 +20,11 @@ rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 
 console.log("→ building client (vite)");
-execSync("bun run build:client", { stdio: "inherit" });
+// Use npx so this works on Hostinger / any host without bun installed.
+// If SKIP_CLIENT_BUILD is set (e.g. CI already built), skip.
+if (!process.env.SKIP_CLIENT_BUILD) {
+  execSync("npx vite build", { stdio: "inherit" });
+}
 
 console.log("→ bundling server (esbuild)");
 await build({
