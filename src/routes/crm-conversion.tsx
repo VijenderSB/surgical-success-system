@@ -248,7 +248,7 @@ function CrmConversionPage() {
               <div className="lg:sticky lg:top-24">
                 <KpiStripSnapshot />
                 <p className="mt-3 text-center text-[11px] text-muted-foreground">
-                  * Live overview from the Transess Eyecare CRM — sample data.
+                  * Live overview from eyFLOW — the Transess Eyecare CRM. Sample data.
                 </p>
               </div>
             </div>
